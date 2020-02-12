@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import datetime
+import time
+import pandas as pd
+from Astock.items import Company_noticeItem
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from pydispatch import dispatcher
+from scrapy import signals
+from Astock.settings import xredis
+
+
+class NoticeSpider(scrapy.Spider):
+    name = 'Notice'
+    allowed_domains = ['xueqiu.com']
+    start_urls = ['http://xueqiu.com/S/SZ000001/']
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #A_stocks = pd.read_excel('Astock/spiders/data_source_xq/Astocks10.xlsx', dtype={'code': str, 'market': str})
+    A_stocks = pd.read_excel('Astock/spiders/data_source_xq/Astocks.xlsx', dtype={'code': str, 'market': str})
+
+
+    def __init__(self):
+        super(NoticeSpider,self).__init__()
+        self.driver = webdriver.Chrome(options=self.chrome_options)
+        # 传递信息,也就是当爬虫关闭时scrapy会发出一个spider_closed的信息,当这个信号发出时就调用closeSpider函数关闭这个浏览器.
+        dispatcher.connect(self.closeSpider, signals.spider_closed)
+
+
+    def closeSpider(self):
+        self.driver.quit()
+
+    def time_trans(self, p_time):
+        times = datetime.datetime.now().strftime('%Y-%m-%d')
+        if '今天' in p_time:
+            pub_time = p_time.replace('今天', times)
+            return pub_time
+        if '秒' in p_time:
+            sec = p_time[:2]
+            now = datetime.datetime.now()
+            delsec = datetime.timedelta(seconds=-int(sec))
+            pub_time = now + delsec
+            pub_time = pub_time.strftime('%Y-%m-%d %H:%M')
+            return pub_time
+        if '分钟' in p_time:
+            min = p_time[:2]
+            now = datetime.datetime.now()
+            delsec = datetime.timedelta(minutes=-int(min))
+            pub_time = now + delsec
+            pub_time = pub_time.strftime('%Y-%m-%d %H:%M')
+            return pub_time
+        if len(p_time) != 11:
+            return p_time
+        year = datetime.datetime.now().strftime('%Y')
+        current_stamp = int(time.time())
+        pub_time = year + '-' + p_time
+        pub_stamp = int(time.mktime(time.strptime(pub_time, "%Y-%m-%d %H:%M")))
+        if current_stamp < pub_stamp:
+            pub_time = str(int(year) - 1) + '-' + p_time
+            return pub_time
+        return pub_time
+
+
+    def get_md5(self, old_str):
+        import hashlib
+        hl = hashlib.md5()
+        hl.update(old_str.encode("utf-8"))
+        return hl.hexdigest()
+
+
+    def parse(self, response):
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'http://xueqiu.com/S/%s/' % stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name = response.meta.get('info')
+        articles = response.xpath("//div[@class='status-list']//div[@class='timeline__item__main']")
+        for article in articles:
+            link_url = article.xpath(
+                ".//div[@class='timeline__item__bd']//div[@class='content content--description']/div/a/@href").get()
+            if xredis.sismember('Astock_Notice',self.get_md5(link_url)):
+                continue
+            xredis.sadd('Astock_Notice',self.get_md5(link_url))
+            title = article.xpath(".//div[@class='timeline__item__info']/div/a/text()").get()
+            pub_time = article.xpath(".//div[@class='timeline__item__info']/a/text()").get()
+            pub_time = self.time_trans(pub_time.split("·")[0].strip())
+            content = article.xpath(
+                ".//div[@class='timeline__item__bd']//div[@class='content content--description']/div/text()").get()
+            item = Company_noticeItem(stock_code=stock_code[2:],stock_market=stock_market,stock_name=stock_name,title=title,
+                                      pub_time=pub_time,content=content,link_url=link_url,crawl_time=self.crawl_time)
+            yield item

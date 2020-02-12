@@ -1,0 +1,191 @@
+# -*- coding: utf-8 -*-
+
+# Scrapy settings for Astock project
+#
+# For simplicity, this file contains only settings considered important or
+# commonly used. You can find more settings consulting the documentation:
+#
+#     https://doc.scrapy.org/en/latest/topics/settings.html
+#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
+BOT_NAME = 'Astock'
+
+SPIDER_MODULES = ['Astock.spiders']
+NEWSPIDER_MODULE = 'Astock.spiders'
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+#USER_AGENT = 'Astock (+http://www.yourdomain.com)'
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False
+
+# Configure maximum concurrent requests performed by Scrapy (default: 16)
+#CONCURRENT_REQUESTS = 32
+
+# Configure a delay for requests for the same website (default: 0)
+# See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
+# See also autothrottle settings and docs
+DOWNLOAD_DELAY = 1
+# The download delay setting will honor only one of:
+#CONCURRENT_REQUESTS_PER_DOMAIN = 16
+#CONCURRENT_REQUESTS_PER_IP = 16
+
+# Disable cookies (enabled by default)
+#COOKIES_ENABLED = False
+
+# Disable Telnet Console (enabled by default)
+#TELNETCONSOLE_ENABLED = False
+
+# Override the default request headers:
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+}
+
+# Enable or disable spider middlewares
+# See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+#SPIDER_MIDDLEWARES = {
+#    'Astock.middlewares.AstockSpiderMiddleware': 543,
+#}
+
+# Enable or disable downloader middlewares
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+DOWNLOADER_MIDDLEWARES = {
+   'Astock.middlewares.ChinaBasicDataDownloaderMiddleware': 200,
+   'Astock.middlewares.CompanyDetailDownloaderMiddleware': 400,
+   'Astock.middlewares.HKBasicDataDownloaderMiddleware': 401,
+   'Astock.middlewares.XueqiuTokenDownloaderMiddleware': 422,
+   'Astock.middlewares.ProxyMiddleware': 423,
+   'Astock.middlewares.UserAgentDownloaderMiddleware': 100,
+}
+
+# Enable or disable extensions
+# See https://doc.scrapy.org/en/latest/topics/extensions.html
+#EXTENSIONS = {
+#    'scrapy.extensions.telnet.TelnetConsole': None,
+#}
+
+# Configure item pipelines
+# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+   'Astock.pipelines.MixDbPieline': 300,
+   'Astock.pipelines.ApiPieline': 200,
+}
+
+# Enable and configure the AutoThrottle extension (disabled by default)
+# See https://doc.scrapy.org/en/latest/topics/autothrottle.html
+#AUTOTHROTTLE_ENABLED = True
+# The initial download delay
+#AUTOTHROTTLE_START_DELAY = 5
+# The maximum download delay to be set in case of high latencies
+#AUTOTHROTTLE_MAX_DELAY = 60
+# The average number of requests Scrapy should be sending in parallel to
+# each remote server
+#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+# Enable showing throttling stats for every response received:
+#AUTOTHROTTLE_DEBUG = False
+
+# Enable and configure HTTP caching (disabled by default)
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+#HTTPCACHE_ENABLED = True
+#HTTPCACHE_EXPIRATION_SECS = 0
+#HTTPCACHE_DIR = 'httpcache'
+#HTTPCACHE_IGNORE_HTTP_CODES = []
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+# # Scrapy-Redis相关配置
+# # 确保request存储到redis中
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+#
+# # 确保所有爬虫共享相同的去重指纹
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+#
+# # 在redis中保持scrapy-redis用到的队列，不会清理redis中的队列，从而可以实现暂停和恢复的功能。
+# SCHEDULER_PERSIST = True
+#
+# # 设置连接redis信息
+# REDIS_URL = 'redis://127.0.0.1:6379/2'
+
+
+
+
+
+# 日志配置
+import datetime
+
+now_time = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+LOG_LEVEL = "WARNING"
+LOG_FILE = "Astock/log/scarpy_%s.log"%now_time
+
+
+#redis连接配置
+import redis
+
+pool = redis.ConnectionPool(host='127.0.0.1',db=1,port=6379,decode_responses=True)
+xredis = redis.Redis(connection_pool=pool)
+
+
+#mysql连接配置
+from pymysql import cursors
+
+DevelopmentConfig = {
+    'host': '127.0.0.1',
+    'port': 3306,
+    'user': 'root',
+    'password': 'root',
+    'database': 'infodb',
+    'charset': 'utf8',
+    'cursorclass': cursors.DictCursor
+}
+
+TestingConfig = {
+    'host': '127.0.0.1',
+    'port': 3306,
+    'user': 'iuser',
+    'password': 'bliuser987654',
+    'database': 'infodb',
+    'charset': 'utf8',
+    'cursorclass': cursors.DictCursor
+}
+
+dbconfig ={
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+}
+
+NOWDBCONFIG = 'development'
+
+
+#CT4服务器接口地址配置
+ct4config = {
+    'development':'192.168.1.74',
+    'testing':'47.97.78.231'
+}
+
+NOWCT4CONFIG = 'development'
+
+
+#Windows下文件路径配置
+WindowsConifg = {
+    'CHINAXUEQIUFILEPATH' : 'F:\爬虫\ct4data\data_source_xq\Astocks.xlsx',
+    'CHINATHSFILEPATH' : 'F:\爬虫\ct4data\data_source_th\Astocks.xlsx',
+    'HKXUEQIUFILEPATH' : 'F:\爬虫\ct4data\data_source_xq\HKstocks.xlsx',
+    'HKTHSFILEPATH' : 'F:\爬虫\ct4data\data_source_th\HKstocks.xlsx'
+}
+#Linux下文件路径配置
+LinuxConfig = {
+    'CHINAXUEQIUFILEPATH' : '/data/ct4data/data_source_xq/Astocks.xlsx',
+    'CHINATHSFILEPATH' : '/data/ct4data/data_source_th/Astocks.xlsx',
+    'HKXUEQIUFILEPATH' : '/data/ct4data/data_source_xq/HKstocks.xlsx',
+    'HKTHSFILEPATH' : '/data/ct4data/data_source_th/HKstocks.xlsx'
+}
+
+filepathcfg = {
+    'windows': WindowsConifg,
+    'linux':LinuxConfig,
+}
+
+NOWSYSTEM = 'windows'

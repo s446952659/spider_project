@@ -1,0 +1,143 @@
+# import pandas as pd
+#
+# A_stocks=pd.read_excel("XAstocks.xlsx",dtype={'code':str,'market':str},index_col=None)
+# for i in A_stocks.index:
+#     if A_stocks['market'].at[i][0:2] == '11':
+#         A_stocks['code'].at[i] = 'SH' + A_stocks['code'].at[i]
+#     else:
+#         A_stocks['code'].at[i] = 'SZ' + A_stocks['code'].at[i]
+#
+# A_stocks.set_index('ID',inplace=True)
+# A_stocks.to_excel(r'XAstocks.xlsx')
+#
+
+# a = [{'A':'食欲啊','B':'22','c':'5'},{'D':'22','E':'22','F':'5'}]
+# import json
+# print(json.dumps(a,ensure_ascii=False))
+# print(type(json.dumps(a)))
+# import re
+# a=  "研活动信息20190806(5) <a href=\"http://static.cninfo.com.cn/finalpage/2019-08-07/1206504174.docx\" title=\"http://static.cninfo.com.cn/finalpage/2019-08-07/1206504174.docx\" target=\"_blank\" class=\"status-link\">网页链接</a>"
+# asd = re.search('title=\"(.*\.docx)',a).group(1)
+# print(asd)
+
+# import datetime
+# import time
+#
+#
+# a2 = '2018-12-27 22:34'
+# a1 = '09-09 00:30'
+# a = '今天 01:58'
+#
+# def time_trans(p_time):
+#     times = datetime.datetime.now().strftime('%Y-%m-%d')
+#     year = datetime.datetime.now().strftime('%Y')
+#     current_stamp = int(time.time())
+#     if '今天' in p_time:
+#         pub_time=p_time.replace('今天',times)
+#         return pub_time
+#     if len(p_time) != 11:
+#         return p_time
+#     pub_time = year + '-' + p_time
+#     pub_stamp = int(time.mktime(time.strptime(pub_time,"%Y-%m-%d %H:%M")))
+#     if current_stamp < pub_stamp:
+#         pub_time = str(int(year)-1)+ '-' + p_time
+#         return pub_time
+#     return pub_time
+#
+# #
+# pub_time = time_trans(a1)
+# print(pub_time)
+
+
+# b2 = '2018-12-27 22:34'
+# b1 = '01-16 19:23'
+# b = '今天 01:58'
+# def time_trans(p_time):
+#     times = datetime.datetime.now().strftime('%Y-%m-%d')
+#     year = '2020'
+#     current_stamp = 1577865371
+#     if '今天' in p_time:
+#         pub_time=a.replace('今天',times)
+#         return pub_time
+#     if len(p_time) != 11:
+#         return p_time
+#     pub_time = year + '-' + p_time
+#     pub_stamp = int(time.mktime(time.strptime(pub_time, "%Y-%m-%d %H:%M")))
+#     if current_stamp < pub_stamp:
+#         pub_time = str(int(year)-1)+ '-' + p_time
+#         return pub_time
+#     return pub_time
+# pub_time = time_trans(b1)
+# print(pub_time)
+#
+# import requests
+# headers = {
+#   'Accept':'*/*',
+#   'Accept-Encoding':'gzip, deflate',
+#   'Accept-Language':'zh-CN,zh;q=0.9',
+#   'Cache-Control':'no-cache',
+#   'Connection':'keep-alive',
+#   'Cookie':'__utma=156575163.1380199371.1567511259.1567511259.1567511259.1; __utmz=156575163.1567511259.1.1.utmcsr=stockpage.10jqka.com.cn|utmccn=(referral)|utmcmd=referral|utmcct=/; spversion=20130314; searchGuide=sg; usersurvey=1; historystock=000001%7C*%7CHK0700%7C*%7CFB%7C*%7C300785; Hm_lvt_78c58f01938e4d85eaf619eae71b4ed1=1568256918,1568256957,1568597444,1568771720; reviewJump=nojump; Hm_lpvt_78c58f01938e4d85eaf619eae71b4ed1=1568771739; v=AroK_QdNs7RpmD9Yeuz6anw8C-vfazyCsO6y6cSzZgwZDFRdrPuOVYB_Av2X',
+#   'hexin-v':'AroK_QdNs7RpmD9Yeuz6anw8C-vfazyCsO6y6cSzZgwZDFRdrPuOVYB_Av2X',
+#   'Host':'basic.10jqka.com.cn',
+#   'Pragma':'no-cache',
+#   'Referer':'http://basic.10jqka.com.cn/000001/finance.html',
+#   'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36',
+#   'X-Requested-With':'XMLHttpRequest',
+# }
+#
+# url = 'http://basic.10jqka.com.cn/api/stock/finance/000001_debt.json'
+# resp = requests.get(url=url,headers=headers)
+# print(resp.text)
+
+# href = "http://basic.10jqka.com.cn/api/stock/finance/600403_debt.json"
+# jsstr = 'window.location.href="%s"'%href
+# from selenium import webdriver
+# print(jsstr)
+# drive = webdriver.Chrome()
+# drive.get('https://www.baidu.com/')
+# drive.execute_script(jsstr)
+# drive.refresh()
+
+
+# a = ''
+# # # # b = a.encode('unicode-escape')
+# # # # print(b)
+# # # # print(b.decode('unicode-escape').encode('unicode-escape').decode('unicode-escape'))
+# # # print(a)
+# # #
+# # #
+# import json
+# print(json.loads(a))
+# print(type(json.loads(a)))
+# print('\u79d1\u76ee\\\u65f6\u95f4'.encode("utf-8").decode("utf-8"))
+# import re
+# a = '［民生证券：增持］2018年年报点评：资产结构持续调整 息差实现业绩提振'
+# status = re.search('：(.*)］',a).group(1)
+# print(status)
+#
+# A = 'SZ000001'
+# print(A[2:])
+#
+# import requests
+# import json
+# host = '192.168.1.174'
+# port = '8081'
+# url =' http://'+host+':'+port+'/ct4/infoApi/up/basic/'
+# data = {
+#     'stock_code':'1',
+#     'stock_market':'1',
+#     'stock_name':'平安银行',
+#     'tchange':'1',
+#     'tvalue':'1',
+#     'tvaluep':'1',
+#     'trange':'1',
+#     'flowvalue':'1',
+#     'fvaluep':'1',
+#     'crawl_time':'1'
+# }
+# resp = requests.post(url=url,data=json.dumps(data))
+# print(resp.json()['code'])
+#
+# a = '{"flashData":{\"title\":[\"\\u79d1\\u76ee\\\\\\u65f6\\u95f4\",[\"\\u4e00\\u3001\\u8425\\u4e1a\\u603b\\u6536\\u5165\",\"\\u5143\",0,true,true],[\"\\u5176\\u4e2d\\uff1a\\u8425\\u4e1a\\u6536\\u5165\",\"\\u5143\",2,false,true],[\"\\u4e8c\\u3001\\u8425\\u4e1a\\u603b\\u6210\\u672c\",\"\\u5143\",0,true,true],[\"\\u5176\\u4e2d\\uff1a\\u8425\\u4e1a\\u6210\\u672c\",\"\\u5143\",2,false,true],[\"\\u8425\\u4e1a\\u7a0e\\u91d1\\u53ca\\u9644\\u52a0\",\"\\u5143\",5,false,true],[\"\\u9500\\u552e\\u8d39\\u7528\",\"\\u5143\",5,false,true],[\"\\u7ba1\\u7406\\u8d39\\u7528\",\"\\u5143\",5,false,true],[\"\\u7814\\u53d1\\u8d39\\u7528\",\"\\u5143\",5,false,true],[\"\\u8d22\\u52a1\\u8d39\\u7528\",\"\\u5143\",5,false,true],[\"\\u5176\\u4e2d\\uff1a\\u5229\\u606f\\u8d39\\u7528\",\"\\u5143\",5,false,true],[\"\\u5229\\u606f\\u6536\\u5165\",\"\\u5143\",8,false,true],[\"\\u8d44\\u4ea7\\u51cf\\u503c\\u635f\\u5931\",\"\\u5143\",5,false,true],[\"\\u4fe1\\u7528\\u51cf\\u503c\\u635f\\u5931\",\"\\u5143\",5,false,true],[\"\\u6295\\u8d44\\u6536\\u76ca\",\"\\u5143\",4,false,true],[\"\\u8d44\\u4ea7\\u5904\\u7f6e\\u6536\\u76ca\",\"\\u5143\",4,false,true],[\"\\u5176\\u4ed6\\u6536\\u76ca\",\"\\u5143\",4,false,true],[\"\\u4e09\\u3001\\u8425\\u4e1a\\u5229\\u6da6\",\"\\u5143\",0,true,true],[\"\\u52a0\\uff1a\\u8425\\u4e1a\\u5916\\u6536\\u5165\",\"\\u5143\",2,false,true],[\"\\u5176\\u4e2d\\uff1a\\u975e\\u6d41\\u52a8\\u8d44\\u4ea7\\u5904\\u7f6e\\u5229\\u5f97\",\"\\u5143\",3,false,true],[\"\\u51cf\\uff1a\\u8425\\u4e1a\\u5916\\u652f\\u51fa\",\"\\u5143\",2,false,true],[\"\\u56db\\u3001\\u5229\\u6da6\\u603b\\u989d\",\"\\u5143\",0,true,true],[\"\\u51cf\\uff1a\\u6240\\u5f97\\u7a0e\\u8d39\\u7528\",\"\\u5143\",2,false,true],[\"\\u4e94\\u3001\\u51c0\\u5229\\u6da6\",\"\\u5143\",0,true,true],[\"\\uff08\\u4e00\\uff09\\u6301\\u7eed\\u7ecf\\u8425\\u51c0\\u5229\\u6da6\",\"\\u5143\",2,false,true],[\"\\u5f52\\u5c5e\\u4e8e\\u6bcd\\u516c\\u53f8\\u6240\\u6709\\u8005\\u7684\\u51c0\\u5229\\u6da6\",\"\\u5143\",2,false,true],[\"\\u5c11\\u6570\\u80a1\\u4e1c\\u635f\\u76ca\",\"\\u5143\",2,false,true],[\"\\u6263\\u9664\\u975e\\u7ecf\\u5e38\\u6027\\u635f\\u76ca\\u540e\\u7684\\u51c0\\u5229\\u6da6\",\"\\u5143\",2,false,true],[\"\\u516d\\u3001\\u6bcf\\u80a1\\u6536\\u76ca\",\"\\u5143\",0,true,false],[\"\\uff08\\u4e00\\uff09\\u57fa\\u672c\\u6bcf\\u80a1\\u6536\\u76ca\",\"\\u5143\",2,false,true],[\"\\uff08\\u4e8c\\uff09\\u7a00\\u91ca\\u6bcf\\u80a1\\u6536\\u76ca\",\"\\u5143\",2,false,true],[\"\\u4e03\\u3001\\u5176\\u4ed6\\u7efc\\u5408\\u6536\\u76ca\",\"\\u5143\",0,true,false],[\"\\u516b\\u3001\\u7efc\\u5408\\u6536\\u76ca\\u603b\\u989d\",\"\\u5143\",0,true,true],[\"\\u5f52\\u5c5e\\u4e8e\\u6bcd\\u516c\\u53f8\\u80a1\\u4e1c\\u7684\\u7efc\\u5408\\u6536\\u76ca\\u603b\\u989d\",\"\\u5143\",2,false,true],[\"\\u5f52\\u5c5e\\u4e8e\\u5c11\\u6570\\u80a1\\u4e1c\\u7684\\u7efc\\u5408\\u6536\\u76ca\\u603b\\u989d\",\"\\u5143\",2,false,true]],\"report\":[[\"2019-06-30\",\"2018-12-31\",\"2017-12-31\",\"2016-12-31\",\"2015-12-31\",\"2014-12-31\"],[\"1.23\\u4ebf\",\"2.38\\u4ebf\",\"2.09\\u4ebf\",\"1.57\\u4ebf\",\"1.31\\u4ebf\",\"1.23\\u4ebf\"],[\"1.23\\u4ebf\",\"2.38\\u4ebf\",\"2.09\\u4ebf\",\"1.57\\u4ebf\",\"1.31\\u4ebf\",\"1.23\\u4ebf\"],[\"8162.85\\u4e07\",\"1.59\\u4ebf\",\"1.44\\u4ebf\",\"1.20\\u4ebf\",\"1.02\\u4ebf\",\"9601.07\\u4e07\"],[\"6112.17\\u4e07\",\"1.18\\u4ebf\",\"1.04\\u4ebf\",\"8175.17\\u4e07\",\"6955.17\\u4e07\",\"6599.81\\u4e07\"],[\"136.85\\u4e07\",\"343.16\\u4e07\",\"321.23\\u4e07\",\"213.23\\u4e07\",\"133.42\\u4e07\",\"126.39\\u4e07\"],[\"798.14\\u4e07\",\"1602.61\\u4e07\",\"1503.72\\u4e07\",\"1381.98\\u4e07\",\"1168.94\\u4e07\",\"1012.24\\u4e07\"],[\"739.75\\u4e07\",\"1460.70\\u4e07\",\"1477.27\\u4e07\",\"1490.32\\u4e07\",\"1934.85\\u4e07\",\"1840.15\\u4e07\"],[\"457.97\\u4e07\",\"768.08\\u4e07\",\"741.81\\u4e07\",\"720.14\\u4e07\",false,false],[\"-89.60\\u4e07\",\"-75.51\\u4e07\",\"-43.64\\u4e07\",\"-1.79\\u4e07\",\"-3.48\\u4e07\",\"16.75\\u4e07\"],[false,false,false,\"1.79\\u4e07\",false,false],[\"90.71\\u4e07\",\"79.25\\u4e07\",\"46.08\\u4e07\",\"6.07\\u4e07\",false,false],[false,\"55.26\\u4e07\",\"8.09\\u4e07\",\"23.28\\u4e07\",\"-35.49\\u4e07\",\"5.74\\u4e07\"],[\"7.58\\u4e07\",false,false,false,false,false],[false,\"11.12\\u4e07\",\"2166.94\",\"80.31\\u4e07\",\"28.60\\u4e07\",false],[\"3.32\\u4e07\",false,false,false,false,false],[\"39.19\\u4e07\",\"21.89\\u4e07\",\"6.88\\u4e07\",false,false,false],[\"4186.51\\u4e07\",\"7870.99\\u4e07\",\"6497.05\\u4e07\",\"3799.60\\u4e07\",\"3013.85\\u4e07\",\"2657.55\\u4e07\"],[\"30.05\\u4e07\",\"254.54\\u4e07\",\"55.09\\u4e07\",\"4.93\\u4e07\",\"7.99\\u4e07\",\"21.03\\u4e07\"],[false,false,false,false,false,\"17.55\\u4e07\"],[false,\"3300.00\",\"3.12\\u4e07\",\"1.06\\u4e07\",\"24.94\\u4e07\",\"5.23\\u4e07\"],[\"4216.56\\u4e07\",\"8125.21\\u4e07\",\"6549.02\\u4e07\",\"3803.46\\u4e07\",\"2996.91\\u4e07\",\"2673.35\\u4e07\"],[\"634.16\\u4e07\",\"1144.50\\u4e07\",\"945.20\\u4e07\",\"544.67\\u4e07\",\"425.95\\u4e07\",\"431.33\\u4e07\"],[\"3582.41\\u4e07\",\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",\"2242.02\\u4e07\"],[\"3582.41\\u4e07\",\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",false],[\"3582.41\\u4e07\",\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3259.94\\u4e07\",\"2607.55\\u4e07\",\"2288.37\\u4e07\"],[false,false,false,\"-1.15\\u4e07\",\"-36.60\\u4e07\",\"-46.35\\u4e07\"],[\"3520.73\\u4e07\",\"6736.62\\u4e07\",\"5553.60\\u4e07\",\"3188.83\\u4e07\",\"2598.26\\u4e07\",\"2275.33\\u4e07\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"0.48\",\"0.94\",\"0.76\",\"0.44\",false,false],[\"0.48\",\"0.94\",\"0.76\",\"0.44\",false,false],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"3582.41\\u4e07\",\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",\"2242.02\\u4e07\"],[\"3582.41\\u4e07\",\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3259.94\\u4e07\",\"2607.55\\u4e07\",\"2288.37\\u4e07\"],[false,false,false,\"-1.15\\u4e07\",\"-36.60\\u4e07\",\"-46.35\\u4e07\"]],\"simple\":[[\"2019-06-30\",\"2018-12-31\",\"2017-12-31\",\"2016-12-31\",\"2015-12-31\",\"2014-12-31\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\"]],\"year\":[[2018,2017,2016,2015,2014],[\"2.38\\u4ebf\",\"2.09\\u4ebf\",\"1.57\\u4ebf\",\"1.31\\u4ebf\",\"1.23\\u4ebf\"],[\"2.38\\u4ebf\",\"2.09\\u4ebf\",\"1.57\\u4ebf\",\"1.31\\u4ebf\",\"1.23\\u4ebf\"],[\"1.59\\u4ebf\",\"1.44\\u4ebf\",\"1.20\\u4ebf\",\"1.02\\u4ebf\",\"9601.07\\u4e07\"],[\"1.18\\u4ebf\",\"1.04\\u4ebf\",\"8175.17\\u4e07\",\"6955.17\\u4e07\",\"6599.81\\u4e07\"],[\"343.16\\u4e07\",\"321.23\\u4e07\",\"213.23\\u4e07\",\"133.42\\u4e07\",\"126.39\\u4e07\"],[\"1602.61\\u4e07\",\"1503.72\\u4e07\",\"1381.98\\u4e07\",\"1168.94\\u4e07\",\"1012.24\\u4e07\"],[\"1460.70\\u4e07\",\"1477.27\\u4e07\",\"1490.32\\u4e07\",\"1934.85\\u4e07\",\"1840.15\\u4e07\"],[\"768.08\\u4e07\",\"741.81\\u4e07\",\"720.14\\u4e07\",false,false],[\"-75.51\\u4e07\",\"-43.64\\u4e07\",\"-1.79\\u4e07\",\"-3.48\\u4e07\",\"16.75\\u4e07\"],[false,false,\"1.79\\u4e07\",false,false],[\"79.25\\u4e07\",\"46.08\\u4e07\",\"6.07\\u4e07\",false,false],[\"55.26\\u4e07\",\"8.09\\u4e07\",\"23.28\\u4e07\",\"-35.49\\u4e07\",\"5.74\\u4e07\"],[false,false,false,false,false],[\"11.12\\u4e07\",\"2166.94\",\"80.31\\u4e07\",\"28.60\\u4e07\",false],[false,false,false,false,false],[\"21.89\\u4e07\",\"6.88\\u4e07\",false,false,false],[\"7870.99\\u4e07\",\"6497.05\\u4e07\",\"3799.60\\u4e07\",\"3013.85\\u4e07\",\"2657.55\\u4e07\"],[\"254.54\\u4e07\",\"55.09\\u4e07\",\"4.93\\u4e07\",\"7.99\\u4e07\",\"21.03\\u4e07\"],[false,false,false,false,\"17.55\\u4e07\"],[\"3300.00\",\"3.12\\u4e07\",\"1.06\\u4e07\",\"24.94\\u4e07\",\"5.23\\u4e07\"],[\"8125.21\\u4e07\",\"6549.02\\u4e07\",\"3803.46\\u4e07\",\"2996.91\\u4e07\",\"2673.35\\u4e07\"],[\"1144.50\\u4e07\",\"945.20\\u4e07\",\"544.67\\u4e07\",\"425.95\\u4e07\",\"431.33\\u4e07\"],[\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",\"2242.02\\u4e07\"],[\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",false],[\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3259.94\\u4e07\",\"2607.55\\u4e07\",\"2288.37\\u4e07\"],[false,false,\"-1.15\\u4e07\",\"-36.60\\u4e07\",\"-46.35\\u4e07\"],[\"6736.62\\u4e07\",\"5553.60\\u4e07\",\"3188.83\\u4e07\",\"2598.26\\u4e07\",\"2275.33\\u4e07\"],[\"\",\"\",\"\",\"\",\"\"],[\"0.94\",\"0.76\",\"0.44\",false,false],[\"0.94\",\"0.76\",\"0.44\",false,false],[\"\",\"\",\"\",\"\",\"\"],[\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3258.79\\u4e07\",\"2570.96\\u4e07\",\"2242.02\\u4e07\"],[\"6980.71\\u4e07\",\"5603.81\\u4e07\",\"3259.94\\u4e07\",\"2607.55\\u4e07\",\"2288.37\\u4e07\"],[false,false,\"-1.15\\u4e07\",\"-36.60\\u4e07\",\"-46.35\\u4e07\"]]}}'
+# print(a)

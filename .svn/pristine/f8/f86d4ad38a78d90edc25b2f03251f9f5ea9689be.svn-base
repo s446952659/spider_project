@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import pandas as pd
+import datetime
+import json
+from Astock.settings import xredis
+from Astock.items import CompanyNewsItem
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from Astock.tools import get_md5,time_trans,filt_htmlstr,timestamptostr
+import logging
+import re
+
+class TestSpider(scrapy.Spider):
+    name = 'Test'
+    allowed_domains = ["cn.investing.com"]
+    start_urls = ['https://cn.investing.com/news/economy/']
+
+
+    def list_to_str(self,plist):
+        p_list = list(map(lambda x:re.sub('\s|\n|\t','',x),plist))
+        p_str = ''.join(p_list)
+        return p_str
+
+
+    def parse(self, response):
+        articles = response.xpath("//div[@class='largeTitle']//article[contains(@class,'js-article-item')]")
+        for article in articles:
+
+
+
+            description = article.xpath(".//div[@class='textDiv']/p/text()").getall()
+            description = self.list_to_str(description)
+
+            #des = ''.join(description)
+            print(description)
+            print('='*30)
+
+
+
+
+
+
+
+
+
+

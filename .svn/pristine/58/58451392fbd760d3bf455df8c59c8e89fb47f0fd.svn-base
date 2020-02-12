@@ -1,0 +1,128 @@
+import requests
+import pandas as pd
+import pymysql
+import datetime
+import redis
+import re
+import time
+
+headers = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'Referer': 'https://xueqiu.com/S/SZ000001',
+  'Cookie': 'acw_tc=2760829515677609600537398e35e646cf5fe1cf20d5d83252ceb249936251; device_id=b7f45f319636de5945d94b74a3172cec; s=cj11kv306h; __utmz=1.1567761069.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); _ga=GA1.2.262329789.1567993671; aliyungf_tc=AQAAAIS3yB3UPQAAMRwOt0oldnKwrRfh; xq_a_token=75661393f1556aa7f900df4dc91059df49b83145; xq_r_token=29fe5e93ec0b24974bdd382ffb61d026d8350d7d; u=151568120838492; Hm_lvt_1db88642e346389874251b5a1eded6e3=1567760888,1567993695,1568121781; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1568123187; __utma=1.1545174286.1567761069.1567761069.1568123390.2; __utmc=1',
+}
+dbparams = {
+           'host':'127.0.0.1',
+           'port':3306,
+           'user':'root',
+           'password':'root',
+           'database':'astock',
+           'charset':'utf8'
+       }
+redisparams = {
+            'host':'127.0.0.1',
+            'db':1,
+            'port':6379,
+            'decode_responses':'True'
+       }
+conn = pymysql.connect(**dbparams)
+pool = redis.ConnectionPool(**redisparams)
+xredis = redis.Redis(connection_pool=pool)
+
+
+def get_md5(old_str):
+    import hashlib
+    hl = hashlib.md5()
+    hl.update(old_str.encode("utf-8"))
+    return hl.hexdigest()
+
+
+def time_trans(p_time):
+    times = datetime.datetime.now().strftime('%Y-%m-%d')
+    year = datetime.datetime.now().strftime('%Y')
+    current_stamp = int(time.time())
+    if '今天' in p_time:
+        pub_time=p_time.replace('今天',times)
+        return pub_time
+    if len(p_time) != 11:
+        return p_time
+    pub_time = year + '-' + p_time
+    pub_stamp = int(time.mktime(time.strptime(pub_time,"%Y-%m-%d %H:%M")))
+    if current_stamp < pub_stamp:
+        pub_time = str(int(year)-1)+ '-' + p_time
+        return pub_time
+    return pub_time
+
+
+def parse_new(url,stock_code,stock_market,stock_name):
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    sql = '''insert into news(stock_code,stock_name,stock_market,title,content_title,
+             description,link_url,pub_time,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+             '''
+    cursor = conn.cursor()
+    resp = requests.get(url=url, headers=headers)
+    content = resp.json()
+    objs = content['list']
+    if objs != []:
+        for obj in objs:
+            title = obj['user']['screen_name']
+            content_title = obj['title']
+            if xredis.sismember('news_filt',get_md5(content_title)):
+                continue
+            pub_time = time_trans(obj['timeBefore'])
+            description = obj['description'].split('...')[0] + "..."
+            try:
+                link_url = obj['quote_cards'][0]['target_url']
+            except:
+                link_url = 'https://xueqiu.com' + obj['target']
+            xredis.sadd('news_filt',get_md5(content_title))
+            cursor.execute(sql,(stock_code[2:],stock_name,stock_market,title,content_title,description,link_url,pub_time,
+                                crawl_time))
+            conn.commit()
+
+
+def parse_notice(url,stock_code,stock_market,stock_name):
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    sql = '''insert into notice(stock_code,stock_name,stock_market,title,content,
+                 link_url,pub_time,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s)
+                 '''
+    cursor = conn.cursor()
+    resp = requests.get(url=url, headers=headers)
+    content = resp.json()
+    objs = content['list']
+    if objs != []:
+        for obj in objs:
+            title = obj['user']['screen_name']
+            pub_time = time_trans(obj['timeBefore'])
+            content = obj['description'].split('<')[0]
+            try:
+                link_url = obj['quote_cards'][0]['target_url']
+            except:
+                link_url = obj["text"]
+                link_url = re.search('title=\"(.*\.docx)',link_url).group(1)
+            if xredis.sismember('notice_filt', get_md5(link_url)):
+                continue
+            xredis.sadd('notice_filt', get_md5(link_url))
+            cursor.execute(sql,(stock_code[2:],stock_name,stock_market,title,content,link_url,pub_time,crawl_time))
+            conn.commit()
+
+
+A_stocks = pd.read_excel("Astocks10.xlsx",dtype={'code': str, 'market': str})
+#循环每个股票
+for i in A_stocks.index:
+    stock_code = A_stocks['code'][i]
+    stock_market = A_stocks['market'][i]
+    stock_name = A_stocks['name'][i]
+    #循环每个股票的页数（1-5）页
+    for i in range(1,6):
+        url = 'https://xueqiu.com/statuses/stock_timeline.json?symbol_id=%s&count=10&source=自选股新闻&page=%s'%(stock_code,i)
+        parse_new(url,stock_code,stock_market,stock_name)
+    for i in range(1,6):
+        url = 'https://xueqiu.com/statuses/stock_timeline.json?symbol_id=%s&count=10&source=公告&page=%s'%(stock_code,i)
+        parse_notice(url,stock_code,stock_market,stock_name)
+    break
+
+
+

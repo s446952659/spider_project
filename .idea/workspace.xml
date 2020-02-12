@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4559633e-4c7c-4a67-9ca8-bfd26aebb327" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Astock$Notice__1_.coverage" NAME="Notice (1) Coverage Results" MODIFIED="1567838671152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1575085289303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../jiyan" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_news_api.coverage" NAME="Start_china_news_api Coverage Results" MODIFIED="1571709045183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$hk_basic_data.coverage" NAME="hk_basic_data Coverage Results" MODIFIED="1571282997660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$json.coverage" NAME="json Coverage Results" MODIFIED="1576065794200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$Start_flashnews_yicai.coverage" NAME="Start_flashnews_yicai Coverage Results" MODIFIED="1577869052597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_sina_notice.coverage" NAME="Start_china_sina_notice Coverage Results" MODIFIED="1577782677981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$testp.coverage" NAME="testp Coverage Results" MODIFIED="1577674189296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$E.coverage" NAME="E Coverage Results" MODIFIED="1578300284028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$StartSina_finance.coverage" NAME="StartSina_finance Coverage Results" MODIFIED="1569480259751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$aaa.coverage" NAME="aaa Coverage Results" MODIFIED="1576489096349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$StartNotice.coverage" NAME="StartNotice Coverage Results" MODIFIED="1569395357242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$1111.coverage" NAME="1111 Coverage Results" MODIFIED="1572850649183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock" />
+    <SUITE FILE_PATH="coverage/Astock$StartHKBasic_data.coverage" NAME="StartHKBasic_data Coverage Results" MODIFIED="1569499825201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_history_fund.coverage" NAME="Start_china_history_fund Coverage Results" MODIFIED="1577687368025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$stock_restfulapi.coverage" NAME="stock_restfulapi Coverage Results" MODIFIED="1575886273153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stock_api" />
+    <SUITE FILE_PATH="coverage/Astock$middlewares.coverage" NAME="middlewares Coverage Results" MODIFIED="1568794507255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock" />
+    <SUITE FILE_PATH="coverage/Astock$start.coverage" NAME="start Coverage Results" MODIFIED="1569240113699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_basic_data__1_.coverage" NAME="Start_china_basic_data (1) Coverage Results" MODIFIED="1575981095331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_basic_data_api.coverage" NAME="Start_hk_basic_data_api Coverage Results" MODIFIED="1577689299148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$tstststs.coverage" NAME="tstststs Coverage Results" MODIFIED="1571298908196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stock_api" />
+    <SUITE FILE_PATH="coverage/Astock$sqltest__1_.coverage" NAME="sqltest (1) Coverage Results" MODIFIED="1577684858101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Notice.coverage" NAME="Notice Coverage Results" MODIFIED="1567686723050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$StartReport.coverage" NAME="StartReport Coverage Results" MODIFIED="1569480144205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_mq_fail.coverage" NAME="Start_mq_fail Coverage Results" MODIFIED="1573630426437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Finance.coverage" NAME="Finance Coverage Results" MODIFIED="1569419106585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_finance.coverage" NAME="Start_china_finance Coverage Results" MODIFIED="1569506342217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_xueqiu_report.coverage" NAME="Start_china_xueqiu_report Coverage Results" MODIFIED="1577773718602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_institution_hold.coverage" NAME="Start_china_institution_hold Coverage Results" MODIFIED="1577687522475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_report_api.coverage" NAME="Start_china_report_api Coverage Results" MODIFIED="1571811371826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$wechat.coverage" NAME="wechat Coverage Results" MODIFIED="1576145236906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$Start_flashnews_invest.coverage" NAME="Start_flashnews_invest Coverage Results" MODIFIED="1577950637365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_ch_ownership.coverage" NAME="Start_china_ch_ownership Coverage Results" MODIFIED="1577686588295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_sina_notice.coverage" NAME="Start_hk_sina_notice Coverage Results" MODIFIED="1577782747660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartHKCh_ownership.coverage" NAME="StartHKCh_ownership Coverage Results" MODIFIED="1569207342703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_company_profile.coverage" NAME="Start_china_company_profile Coverage Results" MODIFIED="1577687179610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$prtice.coverage" NAME="prtice Coverage Results" MODIFIED="1578311921525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/数据分析书案例源码/1.案例源码/chapter8" />
+    <SUITE FILE_PATH="coverage/Astock$flashnew_dailyfx.coverage" NAME="flashnew_dailyfx Coverage Results" MODIFIED="1579161818731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_testspide__1_.coverage" NAME="Start_testspide (1) Coverage Results" MODIFIED="1571039120830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_flashnews_dailyfx.coverage" NAME="Start_flashnews_dailyfx Coverage Results" MODIFIED="1579162535795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$sqltest.coverage" NAME="sqltest Coverage Results" MODIFIED="1578035378357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$wedirvcer__1_.coverage" NAME="wedirvcer (1) Coverage Results" MODIFIED="1573196608369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/CT4" />
+    <SUITE FILE_PATH="coverage/Astock$items.coverage" NAME="items Coverage Results" MODIFIED="1572232307605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock" />
+    <SUITE FILE_PATH="coverage/Astock$testqiangp.coverage" NAME="testqiangp Coverage Results" MODIFIED="1576495965308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$Start_XX.coverage" NAME="Start_XX Coverage Results" MODIFIED="1577674194174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_sina_news_re.coverage" NAME="Start_china_sina_news_re Coverage Results" MODIFIED="1572264248056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$flashnew_yicai.coverage" NAME="flashnew_yicai Coverage Results" MODIFIED="1577865698505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_Finance__1_.coverage" NAME="Start_hk_Finance (1) Coverage Results" MODIFIED="1569721905903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/start_hk" />
+    <SUITE FILE_PATH="coverage/Astock$china_sina_news.coverage" NAME="china_sina_news Coverage Results" MODIFIED="1571822861866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_xueqiu_finance.coverage" NAME="Start_china_xueqiu_finance Coverage Results" MODIFIED="1577761143099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartBasic_data.coverage" NAME="StartBasic_data Coverage Results" MODIFIED="1569231870314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_testspide.coverage" NAME="Start_testspide Coverage Results" MODIFIED="1571144706902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_notice_api.coverage" NAME="Start_hk_notice_api Coverage Results" MODIFIED="1571474051226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartInstitution_hold.coverage" NAME="StartInstitution_hold Coverage Results" MODIFIED="1569382675330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartNews.coverage" NAME="StartNews Coverage Results" MODIFIED="1569395354705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Forecasts.coverage" NAME="Forecasts Coverage Results" MODIFIED="1568619749353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$1111__1_.coverage" NAME="1111 (1) Coverage Results" MODIFIED="1572850840800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_Finance__2_.coverage" NAME="Start_hk_Finance (2) Coverage Results" MODIFIED="1569739504453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_Finance.coverage" NAME="Start_hk_Finance Coverage Results" MODIFIED="1577690545413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartAstockEvent.coverage" NAME="StartAstockEvent Coverage Results" MODIFIED="1569242367946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$history_data.coverage" NAME="history_data Coverage Results" MODIFIED="1568190910583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$stock_api.coverage" NAME="stock_api Coverage Results" MODIFIED="1577758600878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stock_api" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_basic_data.coverage" NAME="Start_hk_basic_data Coverage Results" MODIFIED="1575879263880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$history_data__1_.coverage" NAME="history_data (1) Coverage Results" MODIFIED="1568597178593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/history_newnotice" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_company_detail.coverage" NAME="Start_china_company_detail Coverage Results" MODIFIED="1578552796063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_news_api.coverage" NAME="Start_hk_news_api Coverage Results" MODIFIED="1571474031069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$testwechat.coverage" NAME="testwechat Coverage Results" MODIFIED="1576134379633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$Start_sina_notice_re.coverage" NAME="Start_sina_notice_re Coverage Results" MODIFIED="1572504270858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_sina_news_re.coverage" NAME="Start_sina_news_re Coverage Results" MODIFIED="1573200463827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$wedirvcer.coverage" NAME="wedirvcer Coverage Results" MODIFIED="1573731105084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/CT4" />
+    <SUITE FILE_PATH="coverage/Astock$settings.coverage" NAME="settings Coverage Results" MODIFIED="1574931652070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_basic_data_api.coverage" NAME="Start_china_basic_data_api Coverage Results" MODIFIED="1578103570952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartHKCompany_profile.coverage" NAME="StartHKCompany_profile Coverage Results" MODIFIED="1569413640468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$testspider.coverage" NAME="testspider Coverage Results" MODIFIED="1571144701465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$111.coverage" NAME="111 Coverage Results" MODIFIED="1572832559204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$test.coverage" NAME="test Coverage Results" MODIFIED="1579161767035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_sina_news.coverage" NAME="Start_china_sina_news Coverage Results" MODIFIED="1578103073812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_news.coverage" NAME="Start_china_news Coverage Results" MODIFIED="1570524913636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Institution_hold.coverage" NAME="Institution_hold Coverage Results" MODIFIED="1568599399241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Astock/spiders" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_sina_news.coverage" NAME="Start_hk_sina_news Coverage Results" MODIFIED="1577782730692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_basic_data.coverage" NAME="Start_china_basic_data Coverage Results" MODIFIED="1577068966999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_notice_api.coverage" NAME="Start_china_notice_api Coverage Results" MODIFIED="1571474119529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_china_forecasts.coverage" NAME="Start_china_forecasts Coverage Results" MODIFIED="1577687246902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_company_profile.coverage" NAME="Start_hk_company_profile Coverage Results" MODIFIED="1578625898759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$StartFinance.coverage" NAME="StartFinance Coverage Results" MODIFIED="1569468522006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$starthkch_ownership.coverage" NAME="starthkch_ownership Coverage Results" MODIFIED="1568963986875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Astock$qiangpiao.coverage" NAME="qiangpiao Coverage Results" MODIFIED="1576477895491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/Astock$Start_hk_ch_ownership.coverage" NAME="Start_hk_ch_ownership Coverage Results" MODIFIED="1577689452234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Astock">
+      <favorite_root url="file://$PROJECT_DIR$/Astock/items.py" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/test.py" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>(\S*?):</find>
+      <find>appmsg_history_container</find>
+      <find>lik</find>
+      <find>post</find>
+      <find>getapp</find>
+      <find>getappmsgext</find>
+      <find>777</find>
+      <find>pass_ticket</find>
+      <find>encodeURIComponent</find>
+      <find>wxtoken</find>
+      <find>ccb65d8ecca6cac717801d727decf93df1c4eafbadf9d82f8b8cda654454359bec4b8c345d8931cae9eeeb1c2e064b459635406bfea7374d0f2889ed63b9ec508a33f24f9522f396d30862005a216c14</find>
+      <find>params</find>
+      <find>key</find>
+      <find>self</find>
+      <find>end</find>
+      <find>defer</find>
+      <find>BaseItem</find>
+      <find>itemproc</find>
+      <find>img</find>
+      <find>background-color:white</find>
+      <find>print</find>
+      <find>website</find>
+      <find>InterfaceError</find>
+      <find>_sock</find>
+      <find>cp_reconnect</find>
+      <find>webside</find>
+      <find>&lt;br&gt;</find>
+      <find>cellspacing</find>
+      <find>整体看涨前景不改</find>
+      <find>table</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>'$1':'$2',</replace>
+      <replace>report</replace>
+      <replace>Astock_Notice</replace>
+      <replace>Astock_Report</replace>
+      <replace>classify</replace>
+      <replace>china_news</replace>
+      <replace>china_notice</replace>
+      <replace>china_report</replace>
+      <replace>hk_news</replace>
+      <replace>hk_notice</replace>
+      <replace>HK_stocks</replace>
+      <replace>'$1':'$2'</replace>
+      <replace>&quot;$1&quot;:&quot;$2&quot;</replace>
+      <replace>&quot;$1&quot;</replace>
+      <replace>&quot;$1:&quot;</replace>
+      <replace>&quot;$1&quot;:</replace>
+      <replace>website</replace>
+    </replaceStrings>
+  </component>
+  <component name="ProjectId" id="1XgkJa2lYHnYxUSD8kHibREF9ZQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\爬虫\Astock" />
+      <recent name="F:\爬虫\Astock\Astock" />
+      <recent name="F:\爬虫\Astock\Astock\spiders" />
+      <recent name="F:\爬虫\Astock\backup" />
+      <recent name="F:\爬虫\Astock\start_hk" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\爬虫\Astock" />
+      <recent name="F:\爬虫\Astock\ct4data" />
+      <recent name="F:\爬虫\Astock\ct4data\data_source_th" />
+      <recent name="F:\爬虫\Astock\ct4data\data_source_xq" />
+      <recent name="F:\爬虫\Astock\Astock" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Start_flashnews_dailyfx">
+    <configuration name="Start_china_company_detail" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Start_china_company_detail.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start_flashnews_dailyfx" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Start_flashnews_dailyfx.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start_hk_company_profile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Start_hk_company_profile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="flashnew_dailyfx" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Astock/spiders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Astock/spiders/flashnew_dailyfx.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prtice" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="F:/数据分析书案例源码/1.案例源码/chapter8" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="F:/数据分析书案例源码/1.案例源码/chapter8/prtice.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="Astock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Start_flashnews_dailyfx" />
+        <item itemvalue="Python.flashnew_dailyfx" />
+        <item itemvalue="Python.Start_hk_company_profile" />
+        <item itemvalue="Python.Start_china_company_detail" />
+        <item itemvalue="Python.prtice" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Sy\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4559633e-4c7c-4a67-9ca8-bfd26aebb327" name="Default Changelist" comment="" />
+      <created>1567565453797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1567565453797</updated>
+      <workItem from="1567565455116" duration="6828000" />
+      <workItem from="1567587918409" duration="32715000" />
+      <workItem from="1567684535562" duration="6206000" />
+      <workItem from="1567733726268" duration="4389000" />
+      <workItem from="1567740139576" duration="16260000" />
+      <workItem from="1567820956994" duration="21008000" />
+      <workItem from="1567995044597" duration="50033000" />
+      <workItem from="1568171531843" duration="38191000" />
+      <workItem from="1568596201235" duration="112991000" />
+      <workItem from="1568902577780" duration="122403000" />
+      <workItem from="1569462148013" duration="28884000" />
+      <workItem from="1569563689535" duration="6006000" />
+      <workItem from="1569571204317" duration="4012000" />
+      <workItem from="1569650328222" duration="7315000" />
+      <workItem from="1569659323043" duration="35841000" />
+      <workItem from="1570499110109" duration="12800000" />
+      <workItem from="1570521109759" duration="60686000" />
+      <workItem from="1570758079325" duration="4821000" />
+      <workItem from="1570764321082" duration="96021000" />
+      <workItem from="1571189729228" duration="188908000" />
+      <workItem from="1571923189227" duration="126513000" />
+      <workItem from="1572571938810" duration="3395000" />
+      <workItem from="1572577133961" duration="2190000" />
+      <workItem from="1572590591340" duration="165883000" />
+      <workItem from="1573784064502" duration="85144000" />
+      <workItem from="1574338370379" duration="199000" />
+      <workItem from="1574651846587" duration="5442000" />
+      <workItem from="1574681422695" duration="745000" />
+      <workItem from="1574756295205" duration="709000" />
+      <workItem from="1574767625738" duration="23000" />
+      <workItem from="1574767936267" duration="16000" />
+      <workItem from="1574824631604" duration="143000" />
+      <workItem from="1574841966766" duration="3378000" />
+      <workItem from="1574927055173" duration="9892000" />
+      <workItem from="1574993157072" duration="3230000" />
+      <workItem from="1575008762710" duration="14093000" />
+      <workItem from="1575338548914" duration="11308000" />
+      <workItem from="1575365079166" duration="1695000" />
+      <workItem from="1575424333134" duration="11414000" />
+      <workItem from="1575448717205" duration="23940000" />
+      <workItem from="1575601553014" duration="13075000" />
+      <workItem from="1575860004039" duration="46346000" />
+      <workItem from="1575980854293" duration="48931000" />
+      <workItem from="1576288152112" duration="29648000" />
+      <workItem from="1576547040608" duration="672000" />
+      <workItem from="1576571980910" duration="630000" />
+      <workItem from="1576650787239" duration="70000" />
+      <workItem from="1576741715636" duration="4012000" />
+      <workItem from="1576807144741" duration="10304000" />
+      <workItem from="1576843167285" duration="13000" />
+      <workItem from="1577066072744" duration="4319000" />
+      <workItem from="1577326068288" duration="9116000" />
+      <workItem from="1577363126584" duration="1322000" />
+      <workItem from="1577411616105" duration="15473000" />
+      <workItem from="1577439507244" duration="1006000" />
+      <workItem from="1577516170553" duration="1215000" />
+      <workItem from="1577521996605" duration="1198000" />
+      <workItem from="1577669157014" duration="72193000" />
+      <workItem from="1577966260531" duration="712000" />
+      <workItem from="1578015766836" duration="17719000" />
+      <workItem from="1578124585713" duration="621000" />
+      <workItem from="1578290467311" duration="1722000" />
+      <workItem from="1578293368481" duration="17832000" />
+      <workItem from="1578536674091" duration="5413000" />
+      <workItem from="1578550520642" duration="2103000" />
+      <workItem from="1578556992912" duration="128000" />
+      <workItem from="1578557341786" duration="642000" />
+      <workItem from="1578561557609" duration="762000" />
+      <workItem from="1578621148675" duration="4937000" />
+      <workItem from="1578643964088" duration="92000" />
+      <workItem from="1578646322262" duration="607000" />
+      <workItem from="1578650222044" duration="11000" />
+      <workItem from="1578722774455" duration="124000" />
+      <workItem from="1578727412840" duration="11000" />
+      <workItem from="1578900559510" duration="676000" />
+      <workItem from="1578915257317" duration="632000" />
+      <workItem from="1578970950188" duration="1645000" />
+      <workItem from="1579076163847" duration="93000" />
+      <workItem from="1579076313437" duration="435000" />
+      <workItem from="1579077125049" duration="9000" />
+      <workItem from="1579142171645" duration="13968000" />
+      <workItem from="1581475056174" duration="1155000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+</project>

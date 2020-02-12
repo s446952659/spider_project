@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class HkfinanceSpider(scrapy.Spider):
+    name = 'hk_finance'
+    allowed_domains = ['stockpage.10jqka.com.cn/HK0152/finance/']
+    start_urls = ['http://stockpage.10jqka.com.cn/HK0152/finance//']
+
+    def parse(self, response):
+        print(1)

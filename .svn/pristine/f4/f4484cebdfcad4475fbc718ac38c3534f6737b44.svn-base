@@ -1,0 +1,83 @@
+import datetime
+import time
+import hashlib
+import re
+import html
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+
+def time_trans(p_time):
+    if '今天' in p_time:
+        times = datetime.datetime.now().strftime('%Y-%m-%d')
+        pub_time = p_time.replace('今天', times)
+        return pub_time
+    if '秒' in p_time:
+        sec = p_time[:2]
+        now = datetime.datetime.now()
+        delsec = datetime.timedelta(seconds=-int(sec))
+        pub_time = now + delsec
+        pub_time = pub_time.strftime('%Y-%m-%d %H:%M')
+        return pub_time
+    if '分钟' in p_time:
+        if len(p_time) == 5:
+            min = p_time[:2]
+        else:
+            min = p_time[:1]
+        now = datetime.datetime.now()
+        delsec = datetime.timedelta(minutes=-int(min))
+        pub_time = now + delsec
+        pub_time = pub_time.strftime('%Y-%m-%d %H:%M')
+        return pub_time
+    if len(p_time) != 11:
+        return p_time
+    year = datetime.datetime.now().strftime('%Y')
+    current_stamp = int(time.time())
+    pub_time = year + '-' + p_time
+    pub_stamp = int(time.mktime(time.strptime(pub_time, "%Y-%m-%d %H:%M")))
+    if current_stamp < pub_stamp:
+        pub_time = str(int(year) - 1) + '-' + p_time
+        return pub_time
+    return pub_time
+
+
+def get_md5(old_str):
+    hl = hashlib.md5()
+    hl.update(old_str.encode("utf-8"))
+    return hl.hexdigest()
+
+
+def filt_htmlstr(htmlstr):
+    res = re.sub('<[^<]+?>', '', htmlstr).replace('网页链接','')
+    res_htmlstr = html.unescape(res)
+    return res_htmlstr
+
+
+def timestamptostr(timestamp):
+    timeStamp = float(timestamp / 1000)
+    timeArray = time.localtime(timeStamp)
+    return time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+
+
+def list_to_str(plist):
+    p_list = list(map(lambda x:re.sub('\s|\n|\t','',x),plist))
+    p_str = ''.join(p_list)
+    return p_str
+
+
+def get_cookies():
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.get('https://xueqiu.com/snowman/S/SZ000001/detail#/GSLRB')
+    time.sleep(0.5)
+    if 'captcha' in driver.current_url:
+        proxy = "tps168.kdlapi.com:15818"
+        chrome_options.add_argument("--proxy-server=%s" % proxy)
+        driver = webdriver.Chrome(options=chrome_options)
+        driver.get('https://xueqiu.com/snowman/S/SZ000001/detail#/GSLRB')
+        cookie = driver.get_cookies()
+        return cookie
+    cookie = driver.get_cookies()
+    driver.quit()
+    return cookie

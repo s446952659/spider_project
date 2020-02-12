@@ -1,0 +1,523 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+from twisted.enterprise import adbapi
+from pymysql import cursors
+
+# 'Astock.pipelines.AstockBasicDataDbPipeline': 300,
+# 'Astock.pipelines.AstockCompanyProDbPipeline': 320,
+# 'Astock.pipelines.AstockNoticeDbPipeline': 321,
+# 'Astock.pipelines.AstockNewsDbPipeline': 322,
+# 'Astock.pipelines.AstockReportDbPipeline': 323,
+# 'Astock.pipelines.AstockDetailDbPipeline': 325,
+# 'Astock.pipelines.AstockOwnershipDbPipeline': 328,
+# 'Astock.pipelines.AstockInstitutionDbPipeline': 329,
+# 'Astock.pipelines.AstockForecastsDbPipeline': 330,
+# 'Astock.pipelines.AstockFundDataDbPipeline': 333,
+# 'Astock.pipelines.AstockFinanceDbPipeline': 332,
+# 'Astock.pipelines.HKstockBasicDataDbPipeline': 333,
+# 'Astock.pipelines.HKstockOwnershipDbPipeline': 256,
+# 'Astock.pipelines.HKstockCompanyProfileDbPipeline': 222,
+
+
+
+CONFIGDB = {
+    'host': '127.0.0.1',
+    'port': 3306,
+    'user': 'root',
+    'password': 'root',
+    'database': 'astock',
+    'charset': 'utf8',
+    'cursorclass': cursors.DictCursor
+}
+
+
+# 异步存储,基础信息(API)
+class AstockBasicDataDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into Basic_data(stock_code,stock_name,stock_market,trange,
+                tchange,tvalue,tvaluep,flowvalue,fvaluep,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Basic_data':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'], item['stock_name'], item['stock_market'],
+                                  item['trange'], item['tchange'], item['tvalue'],item['tvaluep'],
+                                  item['flowvalue'],item['fvaluep'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司简介
+class AstockCompanyProDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into Company_profile(stock_code,stock_name,stock_market,area,
+                concept,main_busicness,launch_date,per_share,per_earning,profit,profit_growth,
+                income,ash_flow,fund,undistributed_profit,total_equity,shares_outstanding,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Company_profile':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'], item['stock_name'], item['stock_market'],
+                                  item['area'], item['concept'], item['main_business'],item['launch_date'],
+                                  item['per_share'],item['per_earning'],item['profit'],item['profit_growth']
+                                  ,item['income'],item['cash_flow'],item['fund'],item['undistributed_profit']
+                                  ,item['total_equity'],item['shares_outstanding'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司公告(API)
+class AstockNoticeDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into notice(stock_code,stock_name,stock_market,title,content,
+                link_url,pub_time,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Notice':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'], item['stock_name'], item['stock_market'],
+                                  item['title'], item['content'],item['link_url'], item['pub_time'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司新闻(API)
+class AstockNewsDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into news(stock_code,stock_name,stock_market,title,content_title,
+                description,link_url,pub_time,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'News':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['title'],item['content_title'],item['description'],
+                                  item['link_url'],item['pub_time'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司研报(API)
+class AstockReportDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into report(stock_code,stock_name,stock_market,title,content_title,status,
+                description,link_url,pub_time,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Research_report':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['title'],item['content_title'],item['status'],item['description'],
+                                  item['link_url'],item['pub_time'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,详细情况
+class AstockDetailDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into company_detail(stock_code,stock_name,stock_market,c_name,
+                area,e_name,industry,used_name,web_site,main_business,product_name,shareholder,actual_controller,ultimate_controller,
+                chairman,chairman_secretary,legal_persion,general_manager,registered_capital,number,telephone,fax,zip_code,
+                address,intro,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Company_detail':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],item['c_name'],
+                                  item['area'],item['e_name'],item['industry'],item['used_name'],
+                                  item['web_site'],item['main_business'],item['product_name'],item['shareholder'],
+                                  item['actual_controller'],item['ultimate_controller'],item['chairman'],item['chairman_secretary'],
+                                  item['legal_persion'],item['general_manager'],item['registered_capital'],item['number'],
+                                  item['telephone'],item['fax'],item['zip_code'],item['address'],
+                                  item['intro'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司持股变动
+class AstockOwnershipDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into change_ownership(stock_code,stock_name,stock_market,detaileds_hold,crawl_time) values (%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Ch_ownership':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'], item['stock_name'], item['stock_market'],
+                                  item['detaileds_hold'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,公司机构持股
+class AstockInstitutionDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into institution_hold(stock_code,stock_name,stock_market,summary_hold,detail_hold,
+                crawl_time) values (%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Institution_hold':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['summary_hold'],item['detail_hold'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,业绩预测
+class AstockForecastsDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into forecasts(stock_code,stock_name,stock_market,eper_share,profit,
+                crawl_time) values (%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Forecasts':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['eper_share'],item['profit'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+# 异步存储,历史资金数据
+class AstockFundDataDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into fund_data(stock_code,stock_name,stock_market,fund_data,
+                crawl_time) values (%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'History_fund':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['fund_data'],item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+#异步存储,财务指标
+class AstockFinanceDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into finance(stock_code,stock_name,stock_market,finance_debt,finance_benefit,finance_cash,
+                crawl_time) values (%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+    def process_item(self, item, spider):
+        if spider.name == 'Finance':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['finance_debt'],item['finance_benefit'],item['finance_cash'],
+                                  item['crawl_time']))
+
+    def handle_error(self, error):
+        print(error)
+
+
+#港股基本信息
+class HKstockBasicDataDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into hkbasic_data(stock_code,stock_name,stock_market,total_value,current_market,pe_ratio,
+                price_book,total_equity,earnper_share,crawl_time) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+
+    def process_item(self, item, spider):
+        if spider.name == 'HKBasic_data':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['total_value'],item['current_market'],item['pe_ratio'],
+                                  item['price_book'], item['total_equity'], item['earnper_share'],
+                                  item['crawl_time']))
+
+
+    def handle_error(self, error):
+        print(error)
+
+
+#港股持股变动
+class HKstockOwnershipDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into hkchange_ownership(stock_code,stock_name,stock_market,detaileds_hold,
+                crawl_time) values (%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+
+    def process_item(self, item, spider):
+        if spider.name == 'HKCh_ownership':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['detaileds_hold'],item['crawl_time']))
+
+
+    def handle_error(self, error):
+        print(error)
+
+
+#港股公司基本信息
+class HKstockCompanyProfileDbPipeline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+
+    @property
+    def sql(self):
+        if not self._sql:
+            self._sql = '''
+                insert into hkcompany_profile(stock_code,stock_name,stock_market,
+                launch_date,c_name,address,telephone,webside,profile,crawl_time) 
+                values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                '''
+        return self._sql
+
+
+    def process_item(self, item, spider):
+        if spider.name == 'HKCompany_profile':
+            defer = self.dbpool.runInteraction(self.insert_item, item)
+            defer.addErrback(self.handle_error)
+        else:
+            return item
+
+
+    def insert_item(self, cursor, item):
+        cursor.execute(self.sql, (item['stock_code'],item['stock_name'],item['stock_market'],
+                                  item['launch_date'],item['c_name'],item['address'],
+                                  item['telephone'],item['webside'],item['profile'],item['crawl_time']))
+
+
+    def handle_error(self, error):
+        print(error)
+
+
+#整合所有Pieline
+class MixDbPieline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+
+    def process_item(self, item, spider):
+        defer = self.dbpool.runInteraction(item.save, item)
+        defer.addErrback(self.handle_error)
+        return item
+
+
+    def handle_error(self, error):
+        print(error)
+
+
+#需要调用接口的item处理
+

@@ -1,0 +1,23 @@
+表名:
+basic_data
+字段名:
+stock_code
+stock_market
+stock_name
+tchange # 换手
+tvalue # 总市值
+tvaluep   # 市净率
+trange  # 振幅
+flowvalue # 流通市值
+fvaluep   # 市赢率（动）
+crawl_time # 爬取时间
+
+表名:
+change_ownership
+字段名:
+stock_code
+stock_market
+stock_name
+detaileds_hold =
+crawl_time
+

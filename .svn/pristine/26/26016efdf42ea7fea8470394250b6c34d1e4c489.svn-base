@@ -1,0 +1,132 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import datetime
+import pandas as pd
+import time
+import json
+from Astock.items import FinanceItem
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from pydispatch import dispatcher
+from scrapy import signals
+
+
+
+class FinanceSpider(scrapy.Spider):
+    name = 'Finance'
+    allowed_domains = ['stockpage.10jqka.com.cn']
+    start_urls = ['http://basic.10jqka.com.cn/api/stock/finance/000001_debt.json']
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    benifit_url = 'http://basic.10jqka.com.cn/api/stock/finance/000001_benefit.json'
+    cash_url = 'http://basic.10jqka.com.cn/api/stock/finance/000001_cash.json'
+    #A_stocks = pd.read_excel('Astock/spiders/data_source_th/Astocks10.xlsx',dtype={'code': str, 'market': str})
+    A_stocks = pd.read_excel('Astock/spiders/data_source_th/Astocks.xlsx', dtype={'code': str, 'market': str})
+
+
+    def __init__(self):
+        super(FinanceSpider,self).__init__()
+        options = self.chrome_options
+        self.driver = webdriver.Chrome()
+        dispatcher.connect(self.closeSpider, signals.spider_closed)
+
+
+    def closeSpider(self):
+        self.driver.quit()
+
+
+    #处理过滤字符串
+    def replace_char(self,string):
+        string1 = string.split("fieldflashData")[0][0:-3] + '}'
+        string2 = list(string1)
+        string2[13] = ""
+        return ''.join(string2)
+
+
+    def parse(self, response):
+        stock_code = '000001'
+        stock_market = '1201'
+        stock_name = '平安银行'
+        debt_json = response.xpath("/html/body/text()").get()
+        try:
+            debt_json = self.replace_char(debt_json)
+        except:
+            debt_json = None
+        debt_json = json.dumps(json.loads(debt_json.encode('utf-8').decode('unicode_escape')),ensure_ascii=False)
+        yield scrapy.Request(url=self.benifit_url, callback=self.parse_benefit, dont_filter=True,
+                             meta={"info": (stock_code, stock_market, stock_name,debt_json)})
+
+
+    def parse_benefit(self,response):
+        stock_code, stock_market, stock_name, debt_json = response.meta.get("info")
+        benefit_json = response.xpath("/html/body/text()").get()
+        try:
+            benefit_json = self.replace_char(benefit_json)
+        except:
+            benefit_json = None
+        benefit_json = json.dumps(json.loads(benefit_json.encode('utf-8').decode('unicode_escape')), ensure_ascii=False)
+        yield scrapy.Request(url=self.cash_url, callback=self.parse_cash, dont_filter=True,
+                             meta={"info": (stock_code, stock_market, stock_name, debt_json,benefit_json)})
+
+
+    def parse_cash(self,response):
+        stock_code, stock_market, stock_name, debt_json,benefit_json = response.meta.get("info")
+        cash_json = response.xpath("/html/body/text()").get()
+        try:
+            cash_json = self.replace_char(cash_json)
+        except:
+            cash_json = None
+        cash_json = json.dumps(json.loads(cash_json.encode('utf-8').decode('unicode_escape')), ensure_ascii=False)
+        item = FinanceItem(stock_code=stock_code, stock_market=stock_market, stock_name=stock_name,
+                           finance_debt=debt_json, finance_benefit=benefit_json, finance_cash=cash_json,
+                           crawl_time=self.crawl_time)
+        yield item
+
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'http://basic.10jqka.com.cn/api/stock/finance/%s_debt.json' % stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name, = response.meta.get("info")
+        debt_json = response.xpath("/html/body/text()").get()
+        try:
+            debt_json = self.replace_char(debt_json)
+        except:
+            debt_json = None
+        debt_json = json.dumps(json.loads(debt_json.encode('utf-8').decode('unicode_escape')),ensure_ascii=False)
+        url = 'http://basic.10jqka.com.cn/api/stock/finance/%s_benefit.json'%stock_code
+        yield scrapy.Request(url=url, callback=self.parse_benefit_next, dont_filter=True,
+                             meta={"info": (stock_code, stock_market, stock_name, debt_json)})
+
+
+    def parse_benefit_next(self,response):
+        stock_code, stock_market, stock_name, debt_json = response.meta.get("info")
+        benefit_json = response.xpath("/html/body/text()").get()
+        try:
+            benefit_json = self.replace_char(benefit_json)
+        except:
+            benefit_json = None
+        benefit_json = json.dumps(json.loads(benefit_json.encode('utf-8').decode('unicode_escape')), ensure_ascii=False)
+        url = 'http://basic.10jqka.com.cn/api/stock/finance/%s_cash.json' % stock_code
+        yield scrapy.Request(url=url, callback=self.parse_cash_next, dont_filter=True,
+                             meta={"info": (stock_code, stock_market, stock_name, debt_json, benefit_json)})
+
+
+    def parse_cash_next(self,response):
+        stock_code, stock_market, stock_name, debt_json,benefit_json = response.meta.get("info")
+        cash_json = response.xpath("/html/body/text()").get()
+        try:
+            cash_json = self.replace_char(cash_json)
+        except:
+            cash_json = None
+        cash_json = json.dumps(json.loads(cash_json.encode('utf-8').decode('unicode_escape')), ensure_ascii=False)
+        item = FinanceItem(stock_code=stock_code, stock_market=stock_market, stock_name=stock_name,
+                           finance_debt=debt_json, finance_benefit=benefit_json,
+                           finance_cash=cash_json,crawl_time=self.crawl_time)
+        yield item

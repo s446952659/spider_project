@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import redis
+import pandas as pd
+import datetime
+from redis import Redis
+from Astock.items import Company_noticeItem
+
+
+
+class NoticeSpider(scrapy.Spider):
+    name = 'Notice'
+    allowed_domains = ['stockpage.10jqka.com.cn']
+    start_urls = ['http://stockpage.10jqka.com.cn/000001/']
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    A_stocks = pd.read_excel('F:\爬虫\Astock\Astock\data_source_th\TAstock10.xlsx', dtype={'code': str, 'market': str})
+    #xredis = Redis(host='127.0.0.1/1', port=6379)
+    pool = redis.ConnectionPool(host='127.0.0.1',db=1,port=6379,decode_responses=True)
+    xredis = redis.Redis(connection_pool=pool)
+
+    # md5加密
+    def get_md5(self,old_str):
+        import hashlib
+        hl = hashlib.md5()
+        hl.update(old_str.encode("utf-8"))
+        return hl.hexdigest()
+
+    def parse(self, response):
+        stock_code = '000001'
+        stock_market = '1201'
+        stock_name = '平安银行'
+        lis = response.xpath("//div[@class='sub_cont_6 hSty3']//ul[@class='news_list stat']/li")
+        for li in lis:
+            title = li.xpath(".//span/a/text()").get()
+            link_url = li.xpath(".//span/a/@href").get()
+            put_time = li.xpath(".//span[@class='news_date']/em/text()").get()
+            if self.xredis.sismember('Notice_set',self.get_md5(link_url)):
+                continue
+            self.xredis.sadd('Notice_set', self.get_md5(link_url),)
+            item = Company_noticeItem(stock_code=stock_code,stock_market=stock_market,stock_name=stock_name,
+                                      title=title,link_url=link_url,put_time=put_time,crawl_time=self.crawl_time)
+            yield item
+
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'http://stockpage.10jqka.com.cn/%s/' % stock_code
+            yield scrapy.Request(url=url,callback=self.parse_next,dont_filter=True,
+                                meta={"info":(stock_code,stock_market,stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name = response.meta.get('info')
+        lis = response.xpath("//div[@class='sub_cont_6 hSty3']//ul[@class='news_list stat']/li")
+        for li in lis:
+            title = li.xpath(".//span/a/text()").get()
+            link_url = li.xpath(".//span/a/@href").get()
+            put_time = li.xpath(".//span[@class='news_date']/em/text()").get()
+            if self.xredis.sismember('Notice_set', self.get_md5(link_url)):
+                continue
+            self.xredis.sadd('Notice_set', self.get_md5(link_url))
+            item = Company_noticeItem(stock_code=stock_code, stock_market=stock_market, stock_name=stock_name,
+                                      title=title, link_url=link_url, put_time=put_time, crawl_time=self.crawl_time)
+            yield item

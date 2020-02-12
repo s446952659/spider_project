@@ -1,0 +1,1139 @@
+2019-10-18 17:48:21 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3180/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:48:22 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3156/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:48:23 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3150/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:48:25 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3008/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:49:24 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0625/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:53:24 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK8252/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:02 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3169/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:03 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3163/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:04 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3129/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:06 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3010/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:15 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2846/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:17 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2825/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:18 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2821/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 17:59:19 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2811/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:02:17 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3199/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:02:18 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3127/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:04:26 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1699/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:05:13 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1595/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:06:25 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1426/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:07:29 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1275/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:12:30 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0820/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:10 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0746/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:11 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0745/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:11 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0738/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:12 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0747/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:22 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0725/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:28 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0719/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:31 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0717/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:13:32 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0715/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:14:20 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0647/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:16:27 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0440/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:22:23 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK8157/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:22:43 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3100/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:22:45 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2824/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:23:31 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3081/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:23:33 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2836/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:25:31 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3147/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:25:47 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK7288/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:26:09 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2805/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:27:45 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3188/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:27:46 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3186/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:27:47 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3170/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:13 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0823/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:18 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3096/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:19 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2802/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:21 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2778/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:57 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2834/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:58 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2828/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:28:59 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2800/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:02 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1029/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:25 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0405/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:49 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3167/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:51 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3166/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:57 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3110/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:31:59 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3101/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:00 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3085/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:00 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3080/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:02 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3023/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:13 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2847/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:14 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2813/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:15 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2812/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:32:15 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK2810/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:33:07 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0808/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:33:29 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK1881/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:34:45 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0435/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:35:17 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK0778/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2019-10-18 18:35:21 [scrapy.core.scraper] ERROR: Spider error processing <GET http://stockpage.10jqka.com.cn/HK3115/finance/> (referer: http://stockpage.10jqka.com.cn/HK0152/finance/)
+Traceback (most recent call last):
+  File "D:\python3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "F:\爬虫\Astock\Astock\spiders\hk_finance.py", line 33, in parse_next
+    benefit_ = json.loads(benefit)
+  File "D:\python3\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType

@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import datetime
+from Astock.items import FlashNewsItem
+from Astock.settings import xredis
+from Astock.tools import get_md5
+
+
+
+class FlashNewDailyFxSpider(scrapy.Spider):
+    name = 'FlashNewDailyFx'
+    allowed_domains = ['dailyfxasia.com']
+    start_urls = ['https://www.dailyfxasia.com/market-news-articles']
+
+    def __init__(self):
+        super(FlashNewDailyFxSpider, self).__init__()
+        self.crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    def parse(self, response):
+        lis = response.xpath("//ul[@id='dfx-scrolled-block']//li")
+        for li in lis:
+            link_url = li.xpath(".//div[2]/h3/a/@href").get().strip()
+            if xredis.sismember('flashnews_forex_news', get_md5(link_url)):
+                continue
+            xredis.sadd('flashnews_forex_news', get_md5(link_url))
+            title = li.xpath(".//div[2]/h3/a/text()").get().strip()
+            pub_time =li.xpath(".//div[1]/h3/text()").get().strip()
+            description =li.xpath(".//div[2]/div/text()").get().strip()
+            source = 'dailyfx'
+            classify = '外汇'
+            item = FlashNewsItem(link_url=link_url,title=title,pub_time=pub_time,description=description,
+                                 source=source,classify=classify,crawl_time=self.crawl_time)
+            yield item
+
+
+
+
+
+
+
+
+
+
+
+
+

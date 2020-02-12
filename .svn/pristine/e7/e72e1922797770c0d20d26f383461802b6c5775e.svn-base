@@ -1,0 +1,120 @@
+# -*- coding: utf-8 -*-
+
+# Define here the models for your spider middleware
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
+from scrapy import signals
+import time
+from scrapy.http.response.html import HtmlResponse
+from scrapy.exceptions import IgnoreRequest
+
+
+class BasicDataDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'Basic_data':
+            spider.driver.get(request.url)
+            spider.driver.refresh()
+            time.sleep(1)
+            source = spider.driver.page_source
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class NoticeDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'Notice':
+            spider.driver.get(request.url)
+            time.sleep(0.5)
+            try:
+                btn=spider.driver.find_element_by_link_text('公告')
+            except:
+                raise IgnoreRequest
+            btn.click()
+            btn.click()
+            time.sleep(0.5)
+            source = spider.driver.page_source
+            if '该股票暂无信息' in source:
+                raise IgnoreRequest
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class NewsDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'News':
+            spider.driver.get(request.url)
+            time.sleep(0.5)
+            try:
+                btn=spider.driver.find_element_by_link_text('资讯')
+            except:
+                raise IgnoreRequest
+            btn.click()
+            time.sleep(0.5)
+            source = spider.driver.page_source
+            if '该股票暂无信息' in source:
+                raise IgnoreRequest
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class ResearchreportDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'Research_report':
+            spider.driver.get(request.url)
+            time.sleep(0.5)
+            try:
+                btn=spider.driver.find_element_by_link_text('研报')
+            except:
+                raise IgnoreRequest
+            btn.click()
+            time.sleep(0.5)
+            source = spider.driver.page_source
+            if '该股票暂无信息' in source:
+                raise IgnoreRequest
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class DetailDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'Company_detail':
+            spider.driver.get(request.url)
+            time.sleep(0.8)
+            source = spider.driver.page_source
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class FinanceDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'Finance':
+            spider.driver.get(request.url)
+            spider.driver.refresh()
+            for i in range(100):
+                source = spider.driver.page_source
+                if 'window.location.href' not in source or 'Nginx forbidden' in source:
+                   break
+                spider.driver.refresh()
+                time.sleep(1)
+            source = spider.driver.page_source
+            response = HtmlResponse(url=spider.driver.current_url, body=source, request=request, encoding='utf-8')
+            return response
+
+
+class HKBasicDataDownloaderMiddleware(object):
+    def process_request(self,request,spider):
+        if spider.name == 'HKBasic_data':
+            spider.driver.get(request.url)
+            spider.driver.refresh()
+            time.sleep(1)
+            source = spider.driver.page_source
+            response = HtmlResponse(url=spider.driver.current_url,body=source,request=request,encoding='utf-8')
+            return response
+
+
+class ChinaXueqiuFinanceDownloaderMiddleware(object):
+    def process_request(self, request, spider):
+        if spider.name == 'china_xueqiu_finance':
+            request.cookies['xq_a_token'] = spider.xq_a_token

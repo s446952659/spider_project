@@ -1,0 +1,56 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+from twisted.enterprise import adbapi
+from pymysql import cursors
+import requests
+import logging
+
+
+CONFIGDB = {
+    'host': '127.0.0.1',
+    'port': 3306,
+    'user': 'root',
+    'password': 'root',
+    'database': 'astock',
+    'charset': 'utf8',
+    'cursorclass': cursors.DictCursor
+}
+
+
+#整合所有Pieline
+class MixDbPieline(object):
+    def __init__(self):
+        dbparams = CONFIGDB
+        self.dbpool = adbapi.ConnectionPool('pymysql', **dbparams)
+        self._sql = None
+
+
+    def process_item(self, item, spider):
+        defer = self.dbpool.runInteraction(item.save, item)
+        defer.addErrback(self.handle_error)
+        return item
+
+
+    def handle_error(self, error):
+        print(error)
+
+
+
+#需要调用接口的item处理
+class ApiPieline(object):
+    def process_item(self,item,spider):
+        if item.need_api:
+            resp = item.sapi(requests=requests,item=item)
+            if resp.json()['code'] != 0:
+                print('接口调用失败！')
+                #logging.warning('接口调用失败！')
+                return item
+            return item
+        return item
+

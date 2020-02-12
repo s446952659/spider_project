@@ -1,0 +1,76 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import datetime
+import re
+import pandas as pd
+from Astock.items import ResearchReportItem
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from pydispatch import dispatcher
+from scrapy import signals
+from Astock.settings import xredis
+from Astock.tools import get_md5,time_trans
+
+
+class ResearchReportSpider(scrapy.Spider):
+    name = 'ResearchReport'
+    allowed_domains = ['xueqiu.com']
+    start_urls = ['https://xueqiu.com/S/SZ000001']
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #A_stocks = pd.read_excel('Astock/spiders/data_source_xq/Astocks10.xlsx',dtype={'code': str, 'market': str})
+    A_stocks = pd.read_excel('Astock/spiders/data_source_xq/Astocks.xlsx', dtype={'code': str, 'market': str})
+
+
+    def __init__(self):
+        super(ResearchReportSpider, self).__init__()
+        self.driver = webdriver.Chrome(options=self.chrome_options)
+        dispatcher.connect(self.closeSpider, signals.spider_closed)
+
+
+    def closeSpider(self):
+        self.driver.quit()
+
+
+    def parse(self, response):
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'http://xueqiu.com/S/%s/' % stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code,stock_market,stock_name = response.meta.get('info')
+        articles = response.xpath("//div[@class='status-list']//div[@class='timeline__item__main']")
+        for article in articles:
+            link_url = article.xpath(".//div[@class='timeline__item__bd']/div/a/@href").get()
+            if xredis.exists('Astock_Report') == 1:
+                if xredis.sismember('Astock_Report', get_md5(link_url)):
+                    continue
+                xredis.sadd('Astock_Report', get_md5(link_url))
+            else:
+                xredis.sadd('Astock_Report', get_md5(link_url))
+                xredis.expire('Astock_Report', 2592000)
+            link_url_md5 = get_md5(link_url)
+            title = article.xpath(".//div[@class='timeline__item__info']/div/a/text()").get()
+            pub_time = article.xpath(".//div[@class='timeline__item__info']/a/text()").get()
+            pub_time = time_trans(pub_time.split("·")[0].strip())
+            content_title = article.xpath(".//h3//text()").get()
+            try:
+                status = re.search('：(.*)］', content_title).group(1)
+            except:
+                status = None
+            description = article.xpath(
+                ".//div[@class='timeline__item__bd']//div[@class='content content--description']/div/text()").get()
+            item = ResearchReportItem(stock_code=stock_code[2:], stock_market=stock_market, stock_name=stock_name,
+                                       title=title, pub_time=pub_time, content_title=content_title,status=status,
+                                       description=description, link_url=response.urljoin(link_url),link_url_md5=link_url_md5, crawl_time=self.crawl_time)
+            yield item
+
+
+
+

@@ -1,0 +1,71 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import pandas as pd
+import datetime
+import json
+import re
+import html
+from Astock.items import ResearchReportItem
+from Astock.tools import get_md5,time_trans,filt_htmlstr,timestamptostr
+from Astock.settings import xredis
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import logging
+
+
+
+class ChinaReportApiSpider(scrapy.Spider):
+    name = 'ChinaReportApi'
+    allowed_domains = ['xueqiu.com']
+    start_urls = ['https://xueqiu.com/']
+    handle_httpstatus_list = [302]
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    def __init__(self):
+        super(ChinaReportApiSpider, self).__init__()
+        # 获取接口token
+        driver = webdriver.Chrome(options=self.chrome_options)
+        driver.get('https://xueqiu.com/snowman/S/SZ000001/detail#/GSLRB')
+        cookie = driver.get_cookies()
+        self.xq_a_token = cookie[-2]['value']
+        driver.quit()
+        self.A_stocks = pd.read_excel('Astock/spiders/data_source_xq/Astocks.xlsx', dtype={'code': str, 'market': str})
+        self.crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    def parse(self, response):
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'https://xueqiu.com/statuses/stock_timeline.json?symbol_id=%s&count=10&source=研报&page=1'%stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name = response.meta.get('info')
+        content = json.loads(response.text)
+        objs = content['list']
+        if objs != []:
+            for obj in objs:
+                article_id = obj['id']
+                if xredis.exists('china_report') == 1:
+                    if xredis.sismember('china_report', article_id):
+                        continue
+                    xredis.sadd('china_report', article_id)
+                else:
+                    xredis.sadd('china_report', article_id)
+                    xredis.expire('china_report', 2592000)
+                link_url = 'https://xueqiu.com' + obj['target']
+                title = obj['user']['screen_name']
+                content_title = obj['title']
+                pub_time = timestamptostr(obj['created_at'])
+                description = filt_htmlstr(obj['description'])
+                try:
+                    status = re.search('：(.*)］', content_title).group(1)
+                except:
+                    status = None
+                item = ResearchReportItem(stock_code=stock_code[2:], stock_market=stock_market, stock_name=stock_name,
+                                       title=title, pub_time=pub_time, content_title=content_title,status=status,
+                                       description=description, link_url=link_url,article_id=article_id,crawl_time=self.crawl_time)
+                yield item

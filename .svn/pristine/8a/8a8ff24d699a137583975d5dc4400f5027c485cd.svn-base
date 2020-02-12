@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import pandas as pd
+import datetime
+import json
+from Astock.settings import xredis,filepathcfg,NOWSYSTEM
+from Astock.items import CompanyNewsItem
+from Astock.tools import filt_htmlstr,timestamptostr,get_cookies
+
+
+class ChinaNewsApiSpider(scrapy.Spider):
+    name = 'ChinaNewsApi'
+    allowed_domains = ['xueqiu.com']
+    start_urls = ['https://xueqiu.com/']
+    handle_httpstatus_list = [302]
+
+    def __init__(self):
+        super(ChinaNewsApiSpider, self).__init__()
+        # 获取接口cookies
+        self.cookies = get_cookies()
+        self.crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        self.A_stocks = pd.read_excel(filepathcfg[NOWSYSTEM]['CHINAXUEQIUFILEPATH'], dtype={'code': str, 'market': str})
+
+    def parse(self, response):
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'https://xueqiu.com/statuses/stock_timeline.json?symbol_id=%s&count=10&source=自选股新闻&page=1' % stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,cookies=self.cookies,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name = response.meta.get('info')
+        content = json.loads(response.text)
+        objs = content['list']
+        if objs != []:
+            for obj in objs:
+                article_id=obj['id']
+                # 判断该键是否存在如果存在就判断其中的值，如果不存在过期了就重新设置其中的值
+                if xredis.exists('china_news') == 1:
+                    if xredis.sismember('china_news', article_id):
+                        continue
+                    xredis.sadd('china_news', article_id)
+                else:
+                    xredis.sadd('china_news', article_id)
+                    xredis.expire('china_news', 2592000)
+                if obj['quote_cards'] != None:
+                    link_url = obj['quote_cards'][0]['target_url']
+                else:
+                    link_url = 'https://xueqiu.com' + obj['target']
+                title = obj['user']['screen_name']
+                content_title = obj['title']
+                pub_time = timestamptostr(obj['created_at'])
+                description = filt_htmlstr(obj['description'])
+                item = CompanyNewsItem(stock_code=stock_code[2:], stock_market=stock_market, stock_name=stock_name,
+                                       title=title, pub_time=pub_time, content_title=content_title,
+                                       description=description, link_url=link_url,article_id=article_id,crawl_time=self.crawl_time)
+                yield item
+
+
+
+
+
+
+
+
+

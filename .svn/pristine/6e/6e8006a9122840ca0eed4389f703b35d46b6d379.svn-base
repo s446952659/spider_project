@@ -1,0 +1,71 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import pandas as pd
+import datetime
+from Astock.items import Company_newsItem
+
+
+
+class NewsSpider(scrapy.Spider):
+    name = 'News'
+    allowed_domains = ['stockpage.10jqka.com.cn']
+    start_urls = ['http://stockpage.10jqka.com.cn/000001/']
+    A_stocks = pd.read_excel('F:\爬虫\Astock\Astock\data_source_th\TAstock10.xlsx', dtype={'code': str, 'market': str})
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    def parse(self, response):
+        stock_code = '000001'
+        stock_market = '1201'
+        stock_name = '平安银行'
+        lis = response.xpath("//ul[@stat='f10_spqk_gsxw']/li")
+        for li in lis :
+            title = li.xpath(".//span/a/text()").get()
+            link_url = li.xpath(".//span/a/@href").get()
+            yield scrapy.Request(url=link_url, callback=self.parse_news,dont_filter=True,
+                                 meta={"info": (stock_code,stock_market,stock_name,title,link_url)})
+
+        for i in self.A_stocks.index:
+            stock_code = self.A_stocks['code'][i]
+            stock_market = self.A_stocks['market'][i]
+            stock_name = self.A_stocks['name'][i]
+            url = 'http://stockpage.10jqka.com.cn/%s/' % stock_code
+            yield scrapy.Request(url=url,callback=self.parse_next,dont_filter=True,
+                                meta={"info":(stock_code,stock_market,stock_name)})
+
+
+    def parse_news(self,response):
+        stock_code,stock_market,stock_name,title,link_url = response.meta.get('info')
+        pub_time = response.xpath("//span[@class='info-sp']/text()").get()
+        ps = response.xpath("//div[contains(@class,'main-text')]//p")
+        content_list = []
+        for p in ps:
+            pclass = p.xpath("./@class").get()
+            if pclass == None:
+                content = p.xpath(".//text()").getall()
+                if content == None:
+                    continue
+                for c in content:
+                    content_list.append(c)
+            if pclass == 'img-pWrap':
+                img_url = p.xpath("./img/@src").get()
+                if img_url == None:
+                    continue
+                content_list.append(img_url)
+        contents = ''.join(content_list)
+        item = Company_newsItem(stock_code=stock_code,stock_market=stock_market,stock_name=stock_name,title=title,
+                                pub_time=pub_time,contents=contents,crawl_time=self.crawl_time,link_url=link_url)
+        yield item
+
+    def parse_next(self,response):
+        stock_code,stock_market,stock_name = response.meta.get('info')
+        lis = response.xpath("//ul[@stat='f10_spqk_gsxw']/li")
+        for li in lis:
+            title = li.xpath(".//span/a/text()").get()
+            link_url = li.xpath(".//span/a/@href").get()
+            yield scrapy.Request(url=link_url, callback=self.parse_news,dont_filter=True,
+                                 meta={"info": (stock_code,stock_market,stock_name,title,link_url)})
+
+
+
+
+

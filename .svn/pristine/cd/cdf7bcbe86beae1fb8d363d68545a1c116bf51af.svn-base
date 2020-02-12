@@ -1,0 +1,71 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import datetime
+import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from scrapy import signals
+from pydispatch import dispatcher
+
+from Astock.items import HKBasic_dataItem
+
+
+class HkBasicDataSpider(scrapy.Spider):
+    name = 'HKBasic_data'
+    allowed_domains = ['stockpage.10jqka.com.cn']
+    start_urls = ['http://stockpage.10jqka.com.cn/HK0152/#gegugp_zjjp']
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    # HK_stocks = pd.read_excel('Astock/spiders/data_source_th/HKstocks_10.xlsx',dtype={'code':str,'market':str})
+    HK_stocks = pd.read_excel('Astock/spiders/data_source_th/HKstocks.xlsx', dtype={'code': str, 'market': str})
+
+    def __init__(self):
+        super(HkBasicDataSpider,self).__init__()
+        self.driver = webdriver.Chrome(options=self.chrome_options)
+        dispatcher.connect(self.CloseSpider,signals.spider_closed)
+
+
+    def CloseSpider(self):
+        self.driver.quit()
+
+
+    def parse(self, response):
+        stock_code = 'HK0152'
+        stock_market = '2100'
+        stock_name = '深圳国际'
+        ul = response.xpath("//ul[@class='detail_list cb fl']")
+        total_value = ul.xpath(".//li[2]/strong/text()").get()# 总市值
+        current_market = ul.xpath(".//li[3]/strong/text()").get()# 流通市值
+        pe_ratio = ul.xpath(".//li[4]/strong/text()").get()  # 市赢率
+        price_book = ul.xpath(".//li[5]/strong/text()").get()  # 市净率
+        total_equity = response.xpath("//dl[@class='company_details']/dd[1]/text()").get()#总股本
+        earnper_share = response.xpath("//dl[@class='company_details']/dd[3]/text()").get()#每股收益
+        item = HKBasic_dataItem(stock_code=stock_code,stock_market=stock_market,stock_name=stock_name,
+                                total_value=total_value,current_market=current_market,pe_ratio=pe_ratio,
+                                price_book=price_book,total_equity=total_equity,earnper_share=earnper_share,crawl_time=self.crawl_time)
+        yield item
+
+        for i in self.HK_stocks.index:
+            stock_code = self.HK_stocks['code'][i]
+            stock_market = self.HK_stocks['market'][i]
+            stock_name = self.HK_stocks['name'][i]
+            url = 'http://stockpage.10jqka.com.cn/%s/#gegugp_zjjp' % stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code,stock_market,stock_name=response.meta.get('info')
+        ul = response.xpath("//ul[@class='detail_list cb fl']")
+        total_value = ul.xpath(".//li[2]/strong/text()").get()  # 总市值
+        current_market = ul.xpath(".//li[3]/strong/text()").get()  # 流通市值
+        pe_ratio = ul.xpath(".//li[4]/strong/text()").get()  # 市赢率
+        price_book = ul.xpath(".//li[5]/strong/text()").get()  # 市净率
+        total_equity = response.xpath("//dl[@class='company_details']/dd[1]/text()").get()  # 总股本
+        earnper_share = response.xpath("//dl[@class='company_details']/dd[3]/text()").get()  # 每股收益
+        item = HKBasic_dataItem(stock_code=stock_code, stock_market=stock_market, stock_name=stock_name,
+                                total_value=total_value, current_market=current_market, pe_ratio=pe_ratio,
+                                price_book=price_book, total_equity=total_equity, earnper_share=earnper_share,
+                                crawl_time=self.crawl_time)
+        yield item

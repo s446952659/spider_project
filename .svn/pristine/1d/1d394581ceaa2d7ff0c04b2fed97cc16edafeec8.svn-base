@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+import scrapy
+import pandas as pd
+import datetime
+from Astock.items import HKCompany_profileItem
+
+
+class HkcompanyProfileSpider(scrapy.Spider):
+    name = 'HKCompany_profile'
+    allowed_domains = ['stockpage.10jqka.com.cn']
+    start_urls = ['http://stockpage.10jqka.com.cn/HK0152/#gegugp_zjjp/']
+    profile_url = 'http://stockpage.10jqka.com.cn/HK0152/company/'
+    crawl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #HK_stocks = pd.read_excel('Astock/spiders/data_source_th/HKstocks_10.xlsx',dtype={'code':str,'market':str})
+    HK_stocks = pd.read_excel('Astock/spiders/data_source_th/HKstocks.xlsx', dtype={'code': str, 'market': str})
+
+
+    def parse(self, response):
+        stock_code = 'HK0152'
+        stock_market = '2100'
+        stock_name = '深圳国际'
+        launch_date = response.xpath("//tr[@class='table-info-top']/td[not(@class)]/text()").get()[5:]
+        yield scrapy.Request(url=self.profile_url,callback=self.parse_profile,dont_filter=True,
+                             meta={"info":(stock_code,stock_market,stock_name,launch_date)})
+
+
+    def parse_profile(self,response):
+        stock_code,stock_market,stock_name,launch_date = response.meta.get('info')
+        table = response.xpath("//table[@class='m_table']")
+        c_name = table.xpath(".//tr[1]/td[1]/span/text()").get().strip()
+        address = table.xpath(".//tr[4]/td[2]/span//text()").get().strip()
+        telephone = table.xpath(".//tr[5]/td[1]/span/text()").get().strip()
+        webside = table.xpath(".//tr[6]/td[1]/span/a/text()").get()
+        profile = response.xpath("//div[@class='gn-info f14']/p/text()").get().strip()
+        item = HKCompany_profileItem(stock_code=stock_code,stock_market=stock_market,stock_name=stock_name,
+                                     launch_date=launch_date,c_name=c_name,address=address,telephone=telephone,
+                                     webside=webside,profile=profile,crawl_time=self.crawl_time)
+        yield item
+        for i in self.HK_stocks.index:
+            stock_code = self.HK_stocks['code'][i]
+            stock_market = self.HK_stocks['market'][i]
+            stock_name = self.HK_stocks['name'][i]
+            url = 'http://stockpage.10jqka.com.cn/%s/#gegugp_zjjp/'%stock_code
+            yield scrapy.Request(url=url, callback=self.parse_next, dont_filter=True,
+                                 meta={"info": (stock_code, stock_market, stock_name)})
+
+
+    def parse_next(self,response):
+        stock_code, stock_market, stock_name = response.meta.get('info')
+        launch_date = response.xpath("//tr[@class='table-info-top']/td[not(@class)]/text()").get()[5:]
+        url = 'http://stockpage.10jqka.com.cn/%s/company/'%stock_code
+        yield scrapy.Request(url=url, callback=self.parse_profile_next, dont_filter=True,
+                             meta={"info": (stock_code, stock_market, stock_name, launch_date)})
+
+
+    def parse_profile_next(self,response):
+        stock_code, stock_market, stock_name, launch_date = response.meta.get('info')
+        table = response.xpath("//table[@class='m_table']")
+        c_name = table.xpath(".//tr[1]/td[1]/span/text()").get().strip()
+        address = table.xpath(".//tr[4]/td[2]/span//text()").get().strip()
+        telephone = table.xpath(".//tr[5]/td[1]/span/text()").get().strip()
+        webside = table.xpath(".//tr[6]/td[1]/span/a/text()").get()
+        profile = response.xpath("//div[@class='gn-info f14']/p/text()").get().strip()
+        item = HKCompany_profileItem(stock_code=stock_code, stock_market=stock_market, stock_name=stock_name,
+                                     launch_date=launch_date, c_name=c_name, address=address, telephone=telephone,
+                                     webside=webside, profile=profile, crawl_time=self.crawl_time)
+        yield item

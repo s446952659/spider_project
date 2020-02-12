@@ -1,0 +1,150 @@
+# coding: utf8
+from flask import Flask
+from flask_restful import Api,Resource,reqparse
+from stock_api.config import filepathcfg,dbconfig,china_sql_list,hk_sql_list
+import pandas as pd
+import pymysql
+
+
+app = Flask(__name__)
+api = Api(app)
+
+
+system = 'linux'
+dbparams = dbconfig['testing']
+
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+
+class AddStockApi(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('code',type=str,help='code填写错误！',required=True)
+        parser.add_argument('market',type=str,help='market填写错误！',required=True)
+        parser.add_argument('name',type=str,help='name填写错误！',required=True)
+        #0,表示A股；1，表示港股；
+        parser.add_argument('type',type=int,choices=[0,1,2,3,4],required=True)
+        args = parser.parse_args()
+        #添加A股信息
+        if args['type'] == 0:
+            if len(args['code']) == 6:
+                #同花顺
+                df = pd.read_excel(filepathcfg[system]['CHINATHSFILEPATH'], index_col='ID',dtype={'code': str})
+                code = args['code']
+                code_index = df[(df.code == code)].index.tolist()
+                if len(code_index) == 0 : #0表示在excel中没有需要添加，否则不添加
+                    s = pd.Series({'code': args['code'],'market': args['market'],'name': args['name']})
+                    df = df.append(s, ignore_index=True)
+                    df.to_excel(filepathcfg[system]['CHINATHSFILEPATH'], index_label='ID')
+                else:
+                    return {"bodycode":"1","message":"股票代码已存在！"}
+                #雪球
+                df = pd.read_excel(filepathcfg[system]['CHINAXUEQIUFILEPATH'], index_col='ID',dtype={'code': str})
+                if args['market'][0:2] == '11':
+                    s = pd.Series({'code':'SH'+args['code'],'market': args['market'],'name': args['name']})
+                else:
+                    s = pd.Series({'code':'SZ'+args['code'],'market': args['market'],'name': args['name']})
+                df = df.append(s, ignore_index=True)
+                df.to_excel(filepathcfg[system]['CHINAXUEQIUFILEPATH'], index_label='ID')
+            else:
+                return {"bodycode":"1","message":"A股code填写错误！"}
+        #添加港股信息
+        if args['type'] == 1:
+            if len(args['code']) == 5:
+                #同花顺
+                df = pd.read_excel(filepathcfg[system]['HKTHSFILEPATH'], index_col='ID',dtype={'code': str})
+                code = args['code']
+                code_index = df[(df.code == code.replace('0','HK',1))].index.tolist()
+                if len(code_index) == 0:
+                    s = pd.Series({'code': args['code'].replace('0','HK',1), 'market': args['market'], 'name': args['name']})
+                    df = df.append(s, ignore_index=True)
+                    df.to_excel(filepathcfg[system]['HKTHSFILEPATH'], index_label='ID')
+                else:
+                    return {"bodycode":"1","message":"股票代码已存在！"}
+                #雪球
+                df = pd.read_excel(filepathcfg[system]['HKXUEQIUFILEPATH'], index_col='ID',dtype={'code': str})
+                s = pd.Series({'code': args['code'], 'market': args['market'], 'name': args['name']})
+                df = df.append(s, ignore_index=True)
+                df.to_excel(filepathcfg[system]['HKXUEQIUFILEPATH'], index_label='ID')
+            else:
+                return {"bodycode":"1","message":"港股code填写错误！"}
+        return {"bodycode":"0","message":"新增成功"}
+
+
+class UpdateStockApi(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('code',type=str,help='code填写错误！',required=True)
+        parser.add_argument('market',type=str,help='market填写错误！',required=True)
+        parser.add_argument('name',type=str,help='name填写错误！',required=True)
+        #0,表示A股；1，表示港股；
+        parser.add_argument('type',type=int,choices=[0,1,2,3,4],required=True)
+        args = parser.parse_args()
+        #更新A股信息
+        if args['type'] == 0:
+            if len(args['code']) == 6:
+                #同花顺
+                df = pd.read_excel(filepathcfg[system]['CHINATHSFILEPATH'], index_col='ID',dtype={'code': str})
+                code = args['code']
+                #找到code在df中的索引，返回的是一个列表,找到索引更新对应的名字
+                code_index = df[(df.code == code)].index.tolist()
+                if len(code_index) != 0:
+                    df.loc[code_index[0], 'name'] = args['name']
+                    df.to_excel(filepathcfg[system]['CHINATHSFILEPATH'], index_label='ID')
+                    #雪球
+                    #更改表格数据信息
+                    df = pd.read_excel(filepathcfg[system]['CHINAXUEQIUFILEPATH'], index_col='ID',dtype={'code': str})
+                    if args['market'][0:2] == '11':
+                        code_index = df[(df.code =='SH' + code)].index.tolist()
+                        df.loc[code_index[0], 'name'] = args['name']
+                    else:
+                        code_index = df[(df.code == 'SZ' + code)].index.tolist()
+                        df.loc[code_index[0], 'name'] = args['name']
+                    df.to_excel(filepathcfg[system]['CHINAXUEQIUFILEPATH'], index_label='ID')
+                    #更改数据库信息
+                    conn = pymysql.connect(**dbparams)
+                    cursor = conn.cursor()
+                    for sql in china_sql_list:
+                        cursor.execute(sql,(args['name'],args['code']))
+                        conn.commit()
+                else:
+                    return {"bodycode":"1","message":"更新的股票不在表中！"}
+            else:
+                return {"bodycode": "1", "message": "A股code填写错误！"}
+        #更新港股信息
+        if args['type'] == 1:
+            if len(args['code']) == 5:
+                #同花顺
+                df = pd.read_excel(filepathcfg[system]['HKTHSFILEPATH'], index_col='ID',dtype={'code': str})
+                code = args['code']
+                code_index = df[(df.code == code.replace('0','HK',1))].index.tolist()
+                if len(code_index) != 0:
+                    df.loc[code_index[0],'name'] = args['name']
+                    df.to_excel(filepathcfg[system]['HKTHSFILEPATH'], index_label='ID')
+                    #雪球
+                    df = pd.read_excel(filepathcfg[system]['HKXUEQIUFILEPATH'], index_col='ID',dtype={'code': str})
+                    code_index = df[(df.code == code)].index.tolist()
+                    df.loc[code_index[0], 'name'] = args['name']
+                    df.to_excel(filepathcfg[system]['HKXUEQIUFILEPATH'], index_label='ID')
+                    # 更改数据库信息
+                    conn = pymysql.connect(**dbparams)
+                    cursor = conn.cursor()
+                    for sql in hk_sql_list:
+                        cursor.execute(sql, (args['name'], args['code']))
+                        conn.commit()
+                else:
+                    return {"bodycode": "1", "message": "更新的股票不在表中！"}
+            else:
+                return {"bodycode": "1", "message": "港股code填写错误！"}
+        return {"bodycode":"0","message": "更新成功！"}
+
+
+api.add_resource(AddStockApi,'/api/add/stock/')
+api.add_resource(UpdateStockApi,'/api/update/stock/')
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=9000)
